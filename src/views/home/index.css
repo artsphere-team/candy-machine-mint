@@ -1,0 +1,564 @@
+body
+{
+    margin: 0;
+    background-color: #040201;
+}
+
+@font-face 
+{
+    font-family: pixelFont;
+    src: url(../../fonts/dpcomic.ttf);
+}
+
+header
+{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, #86C6F3, #5B86E5);
+    overflow: hidden;
+    position: relative;
+}
+
+header nav ul
+{
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    z-index: 5;
+}
+header nav ul li
+{
+    display: inline-block;
+}
+header nav ul li a img
+{
+    width: 160px;
+    height: 100px;
+}
+
+header h1
+{
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    text-shadow: 5px 5px 0 #201414c9;
+    font-family: pixelFont;
+    margin: 0;
+    color: #251717;
+    font-size: 160px;
+    z-index: 5;
+}
+
+header .mintButton
+{
+    position: absolute;
+    top: 300px;
+    left: 200px;
+    z-index: 5;
+}
+
+header .headerArt img:nth-child(1)
+{
+    position: absolute;
+    right: 0;
+    bottom: 10vw;
+    z-index: 1;
+}
+header .headerArt img:nth-child(2)
+{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    z-index: 2;
+}
+header .headerArt .bottomGrass
+{
+    background: url(../../img/Top/BottomGrass.png);
+    position: absolute;
+    height: 100px;
+    width: 100vw;
+    bottom: 0;
+    z-index: 3;
+}
+header .headerArt .dwarfWithText img
+{
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    z-index: 6;
+}
+header .headerArt .dwarfWithText .text
+{
+    position: absolute;
+    bottom: 150px;
+    right: 60px;
+    z-index: 5;
+}
+
+header .clouds img:nth-child(1)
+{
+    position: absolute;
+    top: 150px;
+    z-index: 3;
+    animation: cloudAnimation linear infinite;
+    animation-delay: -10s;
+    animation-duration: 30s;
+}
+header .clouds img:nth-child(2)
+{
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    animation: cloudAnimation linear infinite;
+    animation-delay: -80s;
+    animation-duration: 50s;
+}
+header .clouds img:nth-child(3)
+{
+    position: absolute;
+    top: 300px;
+    z-index: 3;
+    animation: cloudAnimation linear infinite;
+    animation-delay: -15s;
+    animation-duration: 45s;
+}
+
+@keyframes cloudAnimation
+{
+    0%
+    {
+        transform: translate(-700px, 0);
+    }
+    100%
+    {
+        transform: translate(100vw, 0);
+    }
+}
+
+main
+{
+    position: relative;
+    padding-top: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+main .shadow
+{
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    background: linear-gradient(to bottom, #251717, #25171700);
+}
+
+main .firstSection
+{
+    margin-bottom: 150px;
+}
+main .firstSection h2
+{
+    text-align: center;
+    font-family: pixelFont;
+    color: #8C3F1F;
+    font-size: 160px;
+    text-shadow: 5px 5px 0 #8c401fa6;
+    margin: 0;
+}
+main .firstSection p
+{
+    text-align: center;
+    font-family: 'lato';
+    color: #F2CC96;
+    font-size: 30px;
+    width: 50%;
+    margin: auto;
+}
+
+main .aboutUs
+{
+    position: relative;
+    margin-bottom: 150px;
+    text-align: center;
+}
+main .aboutUs h2
+{
+    text-align: center;
+    font-family: pixelFont;
+    color: #F2CC96;
+    font-size: 120px;
+    margin: 0;
+}
+main .aboutUs .dwarfImages
+{
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 450px;
+}
+
+main .aboutUs .dwarfImages img
+{
+    margin-left: -80px;
+    width: 200px;
+    height: auto;
+}
+main .aboutUs .kingTalk
+{
+    position: relative;
+}
+main .aboutUs .kingHead
+{
+    position: absolute;
+    top: -350px;
+    left: 25%;
+    transform: translateX(-50%);
+}
+main .aboutUs .cloudTextFrame
+{
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+main .aboutUs .text
+{
+    position: absolute;
+    width: 700px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 25px;
+    background-color: #25171798;
+    box-shadow: 0 0 50px 50px #25171798;
+}
+main .aboutUs .dwarfsWithBackground
+{
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+}
+main .aboutUs .dwarfsWithBackground img
+{
+    width: 200px;
+    height: auto;
+    margin: 20px;
+    box-shadow: 0 0 20px 0 #F2CC9650;
+}
+
+main .roadmap
+{
+    position: relative;
+    text-align: center;
+    color: #F2CC96;
+}
+main .roadmap h2
+{
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: pixelFont;
+    font-size: 120px;
+    text-shadow: 0 10px 10px #040201;
+}
+main .roadmap ul
+{
+    width: 80%;
+    margin-left: 50px;
+    margin-bottom: 150px;
+}
+main .roadmap ul li
+{
+    text-align: left;
+    list-style-type: none;
+    margin-bottom: 50px;
+}
+main .roadmap ul li h3
+{
+    font-family: pixelFont;
+    margin: 0;
+    font-size: 70px;
+    text-shadow: 0 10px 10px #040201;
+}
+main .roadmap ul li p
+{
+    font-family: 'lato';
+    color: #FCBC61;
+    margin: 0;
+    font-size: 30px;
+    text-shadow: 0 10px 10px #040201;
+    width: 50%;
+    padding-left: 40px;
+}
+
+main .faq
+{
+    position: relative;
+    text-align: center;
+}
+main .faq>h2
+{
+    font-family: pixelFont;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 100px;
+    top: 60px;
+    position: absolute;
+    color: #F2CC96;
+}
+main .faq .questions .FAQblock
+{
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: auto;
+    margin-bottom: 50px;
+}
+main .faq .questions div .text
+{
+    position: absolute;
+    color: #F2CC96;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    font-family: pixelFont;
+    width: 100%;
+}
+main .faq .questions div .number
+{
+    position: absolute;
+    color: #F2CC96;
+    top: -25px;
+    left: 20px;
+    font-size: 50px;
+    font-family: pixelFont;
+}
+main .faq .questions div .hidden 
+{ 
+    height: 0;
+}
+main .faq .questions div .visible 
+{ 
+    height: 200px;
+}
+main .faq .questions .special .visible 
+{ 
+    height: 300px;
+}
+main .faq .questions div .information
+{
+    background-color: #4A3127;
+    width: 950px;
+    margin: auto;
+    margin-top: -32px;
+    transition: .3s ease-in-out;
+    overflow: hidden;
+}
+main .faq .questions div .information>p
+{
+    padding-top: 50px;
+    color: #FCBC61;
+    font-family: 'lato';
+    font-size: 30px;
+}
+main .faq .questions div .information p a
+{
+    color: #ff9500;
+    padding: 10px;
+}
+main .faq .questions div .information ul li
+{
+    text-align: left;
+    list-style-type: decimal;
+    color: #FCBC61;
+    font-size: 15px;
+}
+
+footer
+{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+footer img
+{
+    width: 70%;
+    margin-bottom: 50px;
+    opacity: .5;
+}
+footer h2
+{
+    font-size: 150px;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: pixelFont;
+    color: #E2CAA7;
+    text-shadow: 5px 5px 10px #000000;
+}
+footer .footerBlock
+{
+    width: 50%;
+    height: 30px;
+    background-color: #764B25;
+    border-radius: 25px 25px 0 0;
+    margin: auto;
+}
+
+@media screen and (max-width: 1023px)
+{
+    header h1
+    {
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: calc(30px + 10vw);
+        top: 150px;
+    }
+    header .mintButton
+    {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 220px;
+    }
+    header .clouds
+    {
+        display: none;
+    }
+    header nav ul
+    {
+        width: fit-content;
+        width: -moz-fit-content;
+    }
+    main .firstSection h2
+    {
+        font-size: calc(30px + 10vw);
+    }
+    main .firstSection p
+    {
+        width: 95%;
+        font-size: calc(15px + 1vw);
+    }
+    main .aboutUs .kingHead
+    {
+        top: -350px;
+    }
+    main .aboutUs .cloudTextFrame
+    {
+        width: 80%;
+        height: calc(1300px - 1vw);
+    }
+    main .aboutUs .text
+    {
+        width: 75%;
+        font-size: calc(15px + 1vw);
+        top: -50px;
+    }
+    main .aboutUs .dwarfImages
+    {
+        position: relative;
+        left: 40%;
+        transform: translateX(-50%);
+    }
+    main .aboutUs .dwarfsWithBackground
+    {
+        display: inline-block;
+    }
+    main .aboutUs .dwarfsWithBackground img
+    {
+        width: 150px;
+        margin: 5px;
+    }
+    main .roadmap h2
+    {
+        top: 10px;
+        font-size: 100px;
+    }
+    main .roadmap img
+    {
+        width: 100%;
+    }
+    main .roadmap ul
+    {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 15px;
+    }
+    main .roadmap ul li h3
+    {
+        font-family: pixelFont;
+        font-size: 30px;
+    }
+    main .roadmap ul li p
+    {
+        font-size: 15px;
+        padding-left: 20px;
+        width: 80%;
+    }
+    main .faq .questions .FAQblock
+    {
+        width: 100%;
+    }
+    main .faq .questions .FAQblock img
+    {
+        width: 100%;
+    }
+    main .faq .questions div .text
+    {
+        top: -1vw;
+        font-size: calc(15px + 1vw);
+    }
+    main .faq .questions div .number
+    {
+        position: absolute;
+        color: #F2CC96;
+        top: -2vw;
+        left: 20px;
+        font-size: calc(17px + 1vw);
+        font-family: pixelFont;
+    }
+    main .faq .questions div .visible 
+    { 
+        height: 120px;
+    }
+    main .faq .questions div .information
+    {
+        width: 100%;
+    }
+    main .faq .questions div .information p a
+    {
+        color: #FCBC61;
+        text-decoration: none;
+    }
+    main .faq .questions div .information p
+    {
+        padding-top: 50px;
+        color: #FCBC61;
+        font-family: 'lato';
+        font-size: 15px;
+    }
+    footer
+    {
+        margin-top: 100px;
+    }
+    footer img
+    {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    footer h2
+    {
+        font-size: calc(30px + 10vw);
+        top: 0;
+    }
+    footer .footerBlock
+    {
+        width: 80%;
+        height: 20px;
+    }
+}

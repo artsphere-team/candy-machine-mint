@@ -17,7 +17,7 @@ import {
   getCandyMachineState,
   mintOneToken,
   shortenAddress,
-} from "./candy-machine";
+} from "../../logic/candy-machine";
 
 const ConnectButton = styled(WalletDialogButton)``;
 
@@ -27,7 +27,7 @@ const MintContainer = styled.div``; // add your styles here
 
 const MintButton = styled(Button)``; // add your styles here
 
-export interface HomeProps {
+export interface MintProps {
   candyMachineId: anchor.web3.PublicKey;
   config: anchor.web3.PublicKey;
   connection: anchor.web3.Connection;
@@ -36,7 +36,7 @@ export interface HomeProps {
   txTimeout: number;
 }
 
-const Home = (props: HomeProps) => {
+const Mint = (props: MintProps) => {
   const [balance, setBalance] = useState<number>();
   const [isActive, setIsActive] = useState(false); // true when countdown completes
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
@@ -238,4 +238,4 @@ const renderCounter = ({ days, hours, minutes, seconds, completed }: any) => {
   );
 };
 
-export default Home;
+export default Mint;
