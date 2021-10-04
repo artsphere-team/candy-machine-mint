@@ -18,6 +18,7 @@ import {
   mintOneToken,
   shortenAddress,
 } from "../../logic/candy-machine";
+import { Link } from "react-router-dom";
 
 
 const CounterText = styled.span``; // add your styles here
@@ -80,7 +81,7 @@ const Mint = (props: MintProps) => {
       setCandyMachine(candyMachine);
     })();
   };
-  
+
 
   const onMint = async () => {
     try {
@@ -195,12 +196,12 @@ const Mint = (props: MintProps) => {
 
           <MintContainer>
             {!wallet ? (
-              <WalletDialogButton style={{background: 'transparent', boxShadow:'none'}}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
+              <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
             ) : (
               <Button
                 disabled={isSoldOut || isMinting || !isActive}
                 onClick={onMint}
-              variant='text'
+                variant='text'
               >
                 {isSoldOut ? (
                   "SOLD OUT"
@@ -233,6 +234,10 @@ const Mint = (props: MintProps) => {
         </div>
 
       </header>
+
+      <Link to={`/`}><div className='backArrow'>
+      &lt;
+      </div></Link>
 
 
       <Snackbar
