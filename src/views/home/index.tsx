@@ -1,6 +1,6 @@
 import './index.css';
 import { Link } from 'react-router-dom';
-import {  useState } from 'react';
+import { useState } from 'react';
 
 
 const Home = () => {
@@ -9,9 +9,9 @@ const Home = () => {
     const toggleClass = (i: any) => {
         const newActive = isActive;
         newActive[i] = !isActive[i];
-        setActive(()=>newActive);
-        
-        
+        setActive(() => newActive);
+
+
         console.log(isActive);
     };
 
@@ -280,7 +280,10 @@ const Home = () => {
             <footer>
                 <img src="img/Footer/footerGif.gif" alt="animated mine" />
                 <h2>STAY TUNED...</h2>
-                <div className="footerBlock"></div>
+                <div className="footerBlock">
+                    <img className="footerBlockImage" style={{margin: 0, marginTop: 15, marginBottom: 5, width: 30,}} src="img/Footer/logo_kekw_pixelated.png" alt="kekw logo pixel sign" />
+                    <p style={{margin: 0, padding: 0,}}>$KEKW Official Partner</p>
+                </div>
             </footer>
         </div>
     );

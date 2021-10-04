@@ -80,6 +80,7 @@ const Mint = (props: MintProps) => {
       setCandyMachine(candyMachine);
     })();
   };
+  
 
   const onMint = async () => {
     try {

@@ -434,11 +434,15 @@ footer h2 {
 
 footer .footerBlock {
     width: 50%;
-    height: 30px;
+    font-family: pixelFont;
+    height: 80px;
     background-color: #764B25;
+    color: #E2CAA7;
     border-radius: 25px 25px 0 0;
     margin: auto;
 }
+
+
 
 @media screen and (max-width: 1023px) {
     header h1 {
@@ -567,7 +571,7 @@ footer .footerBlock {
     }
     footer .footerBlock {
         width: 80%;
-        height: 20px;
+        height: 80px;
     }
 }
 
