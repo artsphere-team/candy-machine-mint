@@ -267,13 +267,13 @@ main .aboutUs .cloudTextFrame {
 }
 
 main .aboutUs .text {
-    position: absolute;
+    position: absolute; 
     width: 700px;
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
-    font-size: 25px;
+    font-size: 24px;
     background-color: #25171798;
     box-shadow: 0 0 50px 50px #25171798;
 }
@@ -501,7 +501,7 @@ footer .footerBlock {
     }
     main .aboutUs .text {
         width: 75%;
-        font-size: calc(15px + 1vw);
+        font-size: calc(13px + 1vw);
         top: -50px;
     }
     main .aboutUs .dwarfImages {
