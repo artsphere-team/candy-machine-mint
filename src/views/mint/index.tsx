@@ -172,68 +172,68 @@ const Mint = (props: MintProps) => {
         <div className="headerArt">
           <img src="img/Top/castle.png" alt="castle on the sand mountain" />
           <img src="img/Top/grassriver.png" alt="grass with a river" />
-          <div className="dwarfWithText">
-            <img width='250' src="img/DwarfsWithoutBackground/KING.png" alt="dwarf" />
+          <div className="dwarfMintWithText">
+            <img width='200' src="img/DwarfsWithoutBackground/KING.png" alt="dwarf" />
             <div className="text">
-              <img src="img/Top/textcloud.png" alt="text Cloud" />
+              <img src="img/Top/textcloud_mint.png" alt="text Cloud" />
             </div>
           </div>
           <div className="bottomGrass"></div>
         </div>
-        <h2>MINT MINERDWARFS</h2>
+        <h2>MINT<br />MINERDWARFS</h2>
 
-        {wallet && (
-          <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
-        )}
-
-        {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-
-        {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-        {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-        {wallet && <p>Remaining: {itemsRemaining}</p>}
-
-        <MintContainer>
-          {!wallet ? (
-            <ConnectButton><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></ConnectButton>
-          ) : (
-            <MintButton
-              disabled={isSoldOut || isMinting || !isActive}
-              onClick={onMint}
-              variant="contained"
-            >
-              {isSoldOut ? (
-                "SOLD OUT"
-              ) : isActive ? (
-                isMinting ? (
-                  <CircularProgress />
-                ) : (
-                  "MINT"
-                )
-              ) : (
-                <Countdown
-                  date={startDate}
-                  onMount={({ completed }) => completed && setIsActive(true)}
-                  onComplete={() => setIsActive(true)}
-                  renderer={renderCounter}
-                />
-              )}
-            </MintButton>
+        <div className='mintSection' >
+          {wallet && (
+            <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
           )}
-        </MintContainer>
+
+          {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
+
+          {wallet && <p>Total Available: {itemsAvailable}</p>}
+
+          {wallet && <p>Redeemed: {itemsRedeemed}</p>}
+
+          {wallet && <p>Remaining: {itemsRemaining}</p>}
+
+          <MintContainer>
+            {!wallet ? (
+              <WalletDialogButton style={{background: 'transparent', boxShadow:'none'}}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
+            ) : (
+              <Button
+                disabled={isSoldOut || isMinting || !isActive}
+                onClick={onMint}
+              variant='text'
+              >
+                {isSoldOut ? (
+                  "SOLD OUT"
+                ) : isActive ? (
+                  isMinting ? (
+                    <CircularProgress />
+                  ) : (
+                    <img src="img/Buttons/mint.png" alt="mint button" width='200' />
+                  )
+                ) : (
+                  <Countdown
+                    date={startDate}
+                    onMount={({ completed }) => completed && setIsActive(true)}
+                    onComplete={() => setIsActive(true)}
+                    renderer={renderCounter}
+                  />
+                )}
+              </Button>
+            )}
+          </MintContainer>
+        </div>
+
+
+
+
         <div className="clouds">
           <img src="img/Top/Clouds/cloud1.png" alt="cloud" />
           <img src="img/Top/Clouds/cloud2.png" alt="cloud" />
           <img src="img/Top/Clouds/cloud3.png" alt="cloud" />
         </div>
-        <nav>
-          <ul>
-            <li>
-              <a href="https://twitter.com/MinerDwarfs"><img src="img/Buttons/twitter.png" alt="twitter button" /></a>
-            </li>
-          </ul>
-        </nav>
+
       </header>
 
 
