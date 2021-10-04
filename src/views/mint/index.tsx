@@ -18,15 +18,12 @@ import {
   mintOneToken,
   shortenAddress,
 } from "../../logic/candy-machine";
-import { Link } from "react-router-dom";
 
-const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
 
 const MintContainer = styled.div``; // add your styles here
 
-const MintButton = styled(Button)``; // add your styles here
 
 export interface MintProps {
   candyMachineId: anchor.web3.PublicKey;
