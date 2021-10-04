@@ -308,10 +308,10 @@ const Home = () => {
             <footer>
                 <img src="img/Footer/footerGif.gif" alt="animated mine" />
                 <h2>STAY TUNED...</h2>
-                <div className="footerBlock">
+                <a href='https://kekw.io' target='_blank' style={{textDecoration: 'none'}}><div className="footerBlock">
                     <img className="footerBlockImage" style={{ margin: 0, marginTop: 15, marginBottom: 5, width: 30, }} src="img/Footer/logo_kekw_pixelated.png" alt="kekw logo pixel sign" />
                     <p style={{ margin: 0, padding: 0, }}>$KEKW Official Partner</p>
-                </div>
+                </div></a>
             </footer>
         </div>
     );
