@@ -90,34 +90,33 @@ const Home = () => {
                                 however, in the past only a lucky few had connections to magical realms that could bring them NFTs.
                             </p>
                             <p>
-                                Cast your minds back to the Before-fore-time - a time when Micheal Jackson hadn’t become obviously weird.
-                                A time when dogs used to chase cars and poop white shit everywhere.
-                                A time when, people looked, well, people looked ugly, like really ugly…
+                                Cast your minds back to the days of yore - a time when archery practice was compulsory. A time when
+                                dogs used to chase horse carriages and animals would be convicted of crimes. A time when people bathed
+                                once a week and certain loaves of bread could get you high.
                             </p>
                             <p>
-                                ...In these Before-fore-times, to get an NFT, a few people could command their
-                                Fetch Fairies to enter the CryptoMines Of Dwaria and steal NFTs from under the beards of the dwarfs that mined
-                                them before the Dwarfs knew what had happened…
+                                ...In these Before-fore-times, few people could command their Fetch Fairies to enter the CryptoMines
+                                Of Dwaria and steal NFTs from under the beards of the dwarfs that mined them before the Dwarfs could
+                                understand what happened…
                             </p>
                             <p>
-                                ...However, one day the Miner Dwarfs found out and went to war with the Fetch Fairies,
-                                imprisoning them within the deep digital rocks of their mines.
-                                Thinking that their veins of NFTs were now forever safe,
-                                the Dwarfs retired from the world, to drink and delve and covet their NFTs. But the dwarfs delved too deep…
+                                ...However, one day the Miner Dwarfs found out and waged a war on the Fetch Fairies, imprisoning them
+                                within the deep digital rocks of their mines.  Cocky and complacent, the Dwarfs took comfort thinking
+                                that their troves of NFTs were now forever safe. The Dwarfs retired from the world, to drink and delve
+                                and covet their NFTs… But the dwarfs delved too deep…
                             </p>
                             <p>
-                                ...They awakened the Furious Foes who raged against the dwarfs, wreaking havoc and freezing
-                                the dwarfs in place as they worked in their mines. There they have laid for untold years,
-                                but something has changed...
+                                ...They awakened furious foes, such as Ice Dragons, that raged against the dwarfs, wreaking havoc and
+                                freezing the dwarfs in place as they worked in their mines. There they have laid for untold years…
+                                until now…
                             </p>
                             <p>
-                                ...There is a disturbance in the pitch of the  harmony of magic.
-                                A portal has opened in the ether. Although the Fairies have all been captured,
-                                their NFT conduit has opened once more into the CryptoMines
-                                Of Dwaria and the frozen Miner Dwarfs are about to pour out!
-                                Join us! First, we will collect the Miner Dwarfs,
-                                then each owner will be able to use their Dwarf to navigate the CryptoM
-                                ines Of Dwaria and who knows what they will find as the game develops!
+                                ...There is a disturbance in the plane of magic — a portal has opened in the ether. Although the
+                                Fairies have all been captured, their NFT conduit has suddenly opened once more into the CryptoMines
+                                Of Dwaria, and the frozen Miner Dwarfs are about to pour out!
+                            </p>
+                            <p>
+                                Join us in collecting these Miner Dwarfs!
                             </p>
                         </div>
                     </div>
@@ -153,24 +152,51 @@ const Home = () => {
                     <img src="img/Main/roadmap.png" alt="roadmap background" />
                     <h2>ROADMAP</h2>
                     <ul>
-                        <li>
-                            <h3>Public Mint – 8<sup>th</sup> October</h3>
+                        {/* <li>
+                            <h3>Public Mint – 11<sup>th</sup> October at 20:00 UTC</h3>
                             <p>
                                 The 5555 MinerDwarfs will be released to the public.
                                 More Details on Twitter and Discord.
                             </p>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <h3>Marketplace – 8<sup>th</sup> October</h3>
                             <p>
                                 Trade your MinerDwarfs directly on all available marketplaces after minting.
                             </p>
-                        </li>
+                        </li> */}
                         <li>
-                            <h3>Game Launch and – Q4 2021</h3>
-                            <p>
-                                MinerDwarfs Holders will get early access and early rewards to the game.
-                            </p>
+                            <h3>Stage I</h3>
+
+                            <p>Opening of the Fairies NFT conduit into the crypto mines of Dwaria
+                                (Launching/appearing on the Solana blockchain) </p>
+                            <p>Partnerships with some Solana projects </p>
+                            <p>MinerDwarfs Holders will get early access and early rewards to the game.</p>
+
+
+                        </li>
+
+                        <li>
+                            <h3>Stage II</h3>
+
+                            <p>Listing on popular marketplaces  </p>
+                            <p>Setting up token verification and gated access  </p>
+                            <p>Community-driven structuring and building </p>
+                            <p>Partnerships with the best projects in the ecosystem  </p>
+
+
+                        </li>
+
+                        <li>
+                            <h3>Stage III</h3>
+
+                            <p>Airdrop to holders from partners collection as well as next gen series.
+                                (Priority given to higher token holdings). </p>
+                            <p>Dwarfs Market launch</p>
+                            <p>Miner Dwarfs community rewards</p>
+                            <p>All other spells to be cast by the Dwarfs of the crypto mines of Dwaria. </p>
+
+
                         </li>
                     </ul>
                 </section>
@@ -184,8 +210,7 @@ const Home = () => {
                             <h2 className="text">When is the launch?</h2>
                             <div className={isActive[0] ? 'information visible' : 'information hidden'}>
                                 <p>
-                                    October. The exact date will be announced soon
-                                    on Twitter and Discord.
+                                    11th October – 20 UTC.
                                 </p>
                             </div>
                         </div>
@@ -225,7 +250,7 @@ const Home = () => {
                             <h2 className="text">Is there a pre-sale?</h2>
                             <div className={isActive[4] ? 'information visible' : 'information hidden'}>
                                 <p>
-                                    Yes. More info soon
+                                    No
                                 </p>
                             </div>
                         </div>
@@ -235,7 +260,7 @@ const Home = () => {
                             <h2 className="text">How can I tell how rare my Miner Dwarf is?</h2>
                             <div className={isActive[5] ? 'information visible' : 'information hidden'}>
                                 <p>
-                                    You can use the rarity tool!
+                                    You can check on our website after mint.
                                 </p>
                             </div>
                         </div>
@@ -260,16 +285,19 @@ const Home = () => {
                                 </p>
                                 <ul>
                                     <li>
-                                        <p>Download the Phantom or Sollet wallet extension for your browser(Google Chrome recommended).</p>
+                                        <p>Download the Phantom or Sollet wallet extension for your browser (Google Chrome recommended).</p>
                                     </li>
                                     <li>
-                                        <p>Buy Solana(SOL) on an exchange like FTX, Binance, Coinbase, etc, and send it to your Phantom or Sollet wallet Public Address.</p>
+                                        <p>Buy Solana (SOL) on an exchange like FTX, Binance, Coinbase, etc, and send it to your Phantom or Sollet wallet Public Address.</p>
                                     </li>
                                     <li>
                                         <p>Click on the "Mint" button, new subpage will be open.</p>
                                     </li>
                                     <li>
                                         <p>Connect your Wallet to our website by clicking on the Connect button.</p>
+                                    </li>
+                                    <li>
+                                        <p>Click the “Mint” button and approve the transaction in your Wallet.</p>
                                     </li>
                                 </ul>
                             </div>
@@ -281,8 +309,8 @@ const Home = () => {
                 <img src="img/Footer/footerGif.gif" alt="animated mine" />
                 <h2>STAY TUNED...</h2>
                 <div className="footerBlock">
-                    <img className="footerBlockImage" style={{margin: 0, marginTop: 15, marginBottom: 5, width: 30,}} src="img/Footer/logo_kekw_pixelated.png" alt="kekw logo pixel sign" />
-                    <p style={{margin: 0, padding: 0,}}>$KEKW Official Partner</p>
+                    <img className="footerBlockImage" style={{ margin: 0, marginTop: 15, marginBottom: 5, width: 30, }} src="img/Footer/logo_kekw_pixelated.png" alt="kekw logo pixel sign" />
+                    <p style={{ margin: 0, padding: 0, }}>$KEKW Official Partner</p>
                 </div>
             </footer>
         </div>
