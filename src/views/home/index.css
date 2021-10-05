@@ -44,14 +44,14 @@ header h1 {
     z-index: 5;
 }
 
-.backArrow{
+.backArrow {
     position: absolute;
     top: 25px;
     left: 25px;
     z-index: 10;
     font-weight: 900;
     font-size: 40px;
-    text-shadow:3px 3px 0 #201414c9;
+    text-shadow: 3px 3px 0 #201414c9;
     font-family: pixelFont;
     margin: 0;
     color: #251717;
@@ -87,7 +87,7 @@ header .mintSection {
     position: absolute;
     text-align: center;
     top: 320px;
-    text-shadow: 2px 2px 0 #201414aa, 3px 3px 0 #ffffffaa, -1px -1px 0 #ffffffaa;
+    text-shadow: 2px 2px 0 #201414aa, 3px 3px 0 #ffffff50, -1px -1px 0 #ffffff50;
     font-family: pixelFont;
     color: #251717;
     font-size: 33px;
@@ -95,6 +95,17 @@ header .mintSection {
     width: 60vw;
     margin-left: 20vw;
     padding-bottom: 50px;
+}
+
+.countdown {
+    text-align: center;
+    text-shadow: 3px 3px 0 #201414c9, 1px 1px 0 #ffffffa0, -1px -1px 0 #ffffffa0;
+    font-family: pixelFont;
+    font-weight: 800;
+    color: #251717;
+    font-size: 40px;
+    margin-top: 100px;
+    z-index: 5;
 }
 
 header .headerArt img:nth-child(1) {
@@ -267,7 +278,7 @@ main .aboutUs .cloudTextFrame {
 }
 
 main .aboutUs .text {
-    position: absolute; 
+    position: absolute;
     width: 700px;
     top: 0px;
     left: 50%;
@@ -309,20 +320,21 @@ main .roadmap h2 {
 }
 
 main .roadmap ul {
-    width: 80%;
-    margin-left: 50px;
     margin-bottom: 150px;
+    padding: 0;
 }
 
 main .roadmap ul li {
-    text-align: left;
+    text-align: center;
     list-style-type: none;
+    margin: 0;
     margin-bottom: 50px;
 }
 
 main .roadmap ul li h3 {
     font-family: pixelFont;
-    margin: 0;
+    width: 90%;
+    margin: 0 5%;
     font-size: 70px;
     text-shadow: 0 10px 10px #040201;
 }
@@ -333,9 +345,9 @@ main .roadmap ul li p {
     margin: 0;
     font-size: 30px;
     text-shadow: 0 10px 10px #040201;
-    width: 50%;
-    padding-left: 40px;
-    padding-bottom: 15px;
+    width: 60%;
+    margin-left: 20%;
+    padding-bottom: 25px;
 }
 
 main .faq {
@@ -438,7 +450,7 @@ footer img {
 footer h2 {
     font-size: 150px;
     position: absolute;
-    top: 250px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     font-family: pixelFont;
@@ -447,6 +459,9 @@ footer h2 {
 }
 
 footer .footerBlock {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
     width: 50%;
     font-family: pixelFont;
     height: 80px;
@@ -455,8 +470,6 @@ footer .footerBlock {
     border-radius: 25px 25px 0 0;
     margin: auto;
 }
-
-
 
 @media screen and (max-width: 1023px) {
     header h1 {
@@ -477,7 +490,8 @@ footer .footerBlock {
     header .mintButton {
         left: 50%;
         transform: translateX(-50%);
-        top: 270px;
+        top: 350px;
+        width: 200px;
     }
     header .clouds {
         display: none;
@@ -535,7 +549,7 @@ footer .footerBlock {
     }
     main .roadmap ul li p {
         font-size: 15px;
-        padding-left: 20px;
+        margin-left:10%;
         width: 80%;
     }
     main .faq .questions .FAQblock {
@@ -584,13 +598,12 @@ footer .footerBlock {
         top: 0;
     }
     footer .footerBlock {
-        width: 80%;
+        width: 50%;
         height: 80px;
     }
 }
 
 @media screen and (max-width: 723px) {
-
     header .headerArt .dwarfMintWithText .text {
         display: none;
     }

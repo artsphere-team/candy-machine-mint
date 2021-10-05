@@ -194,7 +194,12 @@ const Mint = (props: MintProps) => {
 
           {wallet && <p>Remaining: {itemsRemaining}</p>}
 
-          <MintContainer>
+          {!isActive ? <div className='countdown'><Countdown
+            date={1633982400000}
+            //onMount={({ completed }) => completed && setIsActive(true)}
+            onComplete={() => setIsActive(true)}
+            renderer={renderCounter}
+          /></div> : <MintContainer>
             {!wallet ? (
               <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
             ) : (
@@ -212,16 +217,20 @@ const Mint = (props: MintProps) => {
                     <img src="img/Buttons/mint.png" alt="mint button" width='200' />
                   )
                 ) : (
-                  <Countdown
-                    date={startDate}
-                    onMount={({ completed }) => completed && setIsActive(true)}
+                  <span className='countdown'><Countdown
+                    date={1633982400000}
+                    //onMount={({ completed }) => completed && setIsActive(true)}
                     onComplete={() => setIsActive(true)}
                     renderer={renderCounter}
-                  />
+                  /></span>
                 )}
               </Button>
+
             )}
-          </MintContainer>
+          </MintContainer>}
+
+
+
         </div>
 
 
@@ -236,7 +245,7 @@ const Mint = (props: MintProps) => {
       </header>
 
       <Link to={`/`}><div className='backArrow'>
-      &lt;
+        &lt;
       </div></Link>
 
 
@@ -265,7 +274,7 @@ interface AlertState {
 const renderCounter = ({ days, hours, minutes, seconds, completed }: any) => {
   return (
     <CounterText>
-      {hours + (days || 0) * 24} hours, {minutes} minutes, {seconds} seconds
+      {days}d {hours}h {minutes}m {seconds}s
     </CounterText>
   );
 };

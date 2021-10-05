@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 const Home = () => {
-    var [isActive, setActive] = useState<boolean[]>([false, false, false, false, false, false, false, false]);
+    var [isActive, setActive] = useState<boolean[]>([true, true, true, true, true, true, true, true]);
 
     const toggleClass = (i: any) => {
         const newActive = isActive;
@@ -148,6 +148,17 @@ const Home = () => {
                         <img src="img/DwarfsWithBackground/twenty-fourth.jpg" alt="23 dwarf" />
                     </div>
                 </section>
+                <section className="roadmap" >
+                    <ul >
+                        <li>
+                            <h3>Public Mint – 11<sup>th</sup> October at 20:00 UTC</h3>
+                            <p >
+                                The 5555 MinerDwarfs will be released to the public.
+                                More Details on Twitter and Discord.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
                 <section className="roadmap">
                     <img src="img/Main/roadmap.png" alt="roadmap background" />
                     <h2>ROADMAP</h2>
@@ -165,13 +176,14 @@ const Home = () => {
                                 Trade your MinerDwarfs directly on all available marketplaces after minting.
                             </p>
                         </li> */}
+                        <br/>
                         <li>
                             <h3>Stage I</h3>
 
                             <p>Opening of the Fairies NFT conduit into the crypto mines of Dwaria
                                 (Launching/appearing on the Solana blockchain) </p>
                             <p>Partnerships with some Solana projects </p>
-                            <p>MinerDwarfs Holders will get early access and early rewards to the game.</p>
+                            <p>Pouring out of the frozen Miner Dwarfs (Public mint: 20 UTC, 11th Oct. 2021) </p>
 
 
                         </li>
@@ -308,7 +320,7 @@ const Home = () => {
             <footer>
                 <img src="img/Footer/footerGif.gif" alt="animated mine" />
                 <h2>STAY TUNED...</h2>
-                <a href='https://kekw.io' target='_blank' style={{textDecoration: 'none'}}><div className="footerBlock">
+                <a href='https://kekw.io' target='_blank' rel="noreferrer" style={{ textDecoration: 'none' }}><div className="footerBlock">
                     <img className="footerBlockImage" style={{ margin: 0, marginTop: 15, marginBottom: 5, width: 30, }} src="img/Footer/logo_kekw_pixelated.png" alt="kekw logo pixel sign" />
                     <p style={{ margin: 0, padding: 0, }}>$KEKW Official Partner</p>
                 </div></a>
