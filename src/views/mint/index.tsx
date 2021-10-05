@@ -44,6 +44,7 @@ const Mint = (props: MintProps) => {
   const [itemsAvailable, setItemsAvailable] = useState(0);
   const [itemsRedeemed, setItemsRedeemed] = useState(0);
   const [itemsRemaining, setItemsRemaining] = useState(0);
+  const [price, setprice] = useState(0);
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -66,6 +67,7 @@ const Mint = (props: MintProps) => {
         itemsAvailable,
         itemsRemaining,
         itemsRedeemed,
+        price
       } = await getCandyMachineState(
         wallet as anchor.Wallet,
         props.candyMachineId,
@@ -75,6 +77,7 @@ const Mint = (props: MintProps) => {
       setItemsAvailable(itemsAvailable);
       setItemsRemaining(itemsRemaining);
       setItemsRedeemed(itemsRedeemed);
+      setprice(price/1000000000);
 
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
@@ -187,6 +190,8 @@ const Mint = (props: MintProps) => {
           )}
 
           {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
+          
+          {wallet && <p>NFT price: {price} SOL</p>}
 
           {wallet && <p>Total Available: {itemsAvailable}</p>}
 
