@@ -78,6 +78,14 @@ header .mintButton {
     z-index: 5;
 }
 
+header .designButton {
+    position: absolute;
+    top: 500px;
+    left: 240px;
+    z-index: 5;
+    width: 300px;
+}
+
 header .rarityToolButton {
     position: absolute;
     top: 300px;
@@ -498,6 +506,13 @@ footer .footerBlock {
         left: 50%;
         transform: translateX(-50%);
         top: 350px;
+        width: 200px;
+    }
+
+    header .designButton {
+        left: calc(50% );
+        transform: translateX(-47%);
+        top: 500px;
         width: 200px;
     }
 
