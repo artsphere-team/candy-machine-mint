@@ -34,6 +34,7 @@ const Home = () => {
                 </div>
                 <h1>MINERDWARFS</h1>
                 <Link to={`/mint`}><img src="img/Buttons/mint.png" alt="mint button" className="mintButton" /></Link>
+            
                 <div className="clouds">
                     <img src="img/Top/Clouds/cloud1.png" alt="cloud" />
                     <img src="img/Top/Clouds/cloud2.png" alt="cloud" />

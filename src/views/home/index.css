@@ -34,7 +34,7 @@ header nav ul li a img {
 
 header h1 {
     position: absolute;
-    top: 100px;
+    top: 120px;
     left: 200px;
     text-shadow: 5px 5px 0 #201414c9;
     font-family: pixelFont;
@@ -60,7 +60,7 @@ header h1 {
 header h2 {
     position: absolute;
     text-align: center;
-    top: 50px;
+    top: 60px;
     text-shadow: 5px 5px 0 #201414c9;
     font-family: pixelFont;
     margin: 0;
@@ -75,6 +75,13 @@ header .mintButton {
     position: absolute;
     top: 300px;
     left: 200px;
+    z-index: 5;
+}
+
+header .rarityToolButton {
+    position: absolute;
+    top: 300px;
+    left: 550px;
     z-index: 5;
 }
 
@@ -493,6 +500,14 @@ footer .footerBlock {
         top: 350px;
         width: 200px;
     }
+
+    header .rarityToolButton {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 450px;
+        width: 200px;
+    }
+
     header .clouds {
         display: none;
     }
