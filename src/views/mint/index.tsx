@@ -199,7 +199,11 @@ const Mint = (props: MintProps) => {
 
           {wallet && <p>Remaining: {itemsRemaining}</p>}
 
-          {!isActive ? <div className='countdown'><Countdown
+          {!isActive ? <div className='countdown'>
+            
+            <p>Coming soon</p>
+
+            <Countdown
             date={1633982400000}
             //onMount={({ completed }) => completed && setIsActive(true)}
             onComplete={() => setIsActive(true)}
