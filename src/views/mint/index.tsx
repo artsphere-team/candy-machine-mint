@@ -223,7 +223,7 @@ const Mint = (props: MintProps) => {
                   isMinting ? (
                     <CircularProgress />
                   ) : (
-                    <img src="img/Buttons/mint.png" alt="mint button" width='200' />
+                    <img src="img/Buttons/mint1.png" alt="mint button" width='200' />
                   )
                 ) : (
                   <span className='countdown'><Countdown

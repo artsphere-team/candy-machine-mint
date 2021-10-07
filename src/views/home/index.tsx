@@ -33,7 +33,7 @@ const Home = () => {
                     <div className="bottomGrass"></div>
                 </div>
                 <h1>MINERDWARFS</h1>
-                <Link to={`/mint`}><img src="img/Buttons/mint.png" alt="mint button" className="mintButton" /></Link>
+                <Link to={`/mint`}><img src="img/Buttons/mint1.png" alt="mint button" className="mintButton" /></Link>
                 <a href='https://design.minerdwarfs.io/' target='_blank' rel="noreferrer"><img src="img/Buttons/DES.png" alt="mint button" className="designButton" /></a>
             
                 <div className="clouds">
