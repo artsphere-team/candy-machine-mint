@@ -168,6 +168,20 @@ const Mint = (props: MintProps) => {
     props.connection,
   ]);
 
+  const launchDate = new Date('2021-10-11 20:00:00')
+  const currentDate = new Date()
+
+  const whitelistedMinutes = 1000000
+  const whitelistedWallets = ['JDqdPQt6YuBsajHYWtjE73XaSfZNwH3eXHqRNnvLi6FZ', '9y8hheCcUokjBPiWqYiYfKMyczH5yPji46wsduvVPBzV']
+
+  const isWhitelistedWallet = whitelistedWallets.includes(wallet? wallet?.publicKey.toBase58(): "")
+
+  const afterLaunchDate = isWhitelistedWallet? new Date(currentDate.getTime() + whitelistedMinutes*60000) > launchDate : currentDate > launchDate
+  
+  if ((afterLaunchDate || isWhitelistedWallet) && !isActive) {
+    setIsActive(true)
+  }
+
   return (
     <div>
       <header>
@@ -184,27 +198,33 @@ const Mint = (props: MintProps) => {
         </div>
         <h2>MINT<br />MINERDWARFS</h2>
 
+        {!wallet && !isActive? (
+          <div style={{float: 'right'}}>
+              <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none'}}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
+          </div>
+        ): undefined}
+
         <div className='mintSection' >
           {wallet && (
             <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
           )}
 
-          {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
+          {isActive && wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
           
-          {wallet && <p>NFT price: {price} SOL</p>}
+          {isActive && wallet && <p>NFT price: {price} SOL</p>}
 
-          {wallet && <p>Total Available: {itemsAvailable}</p>}
+          {isActive && wallet && <p>Total Available: {itemsAvailable}</p>}
 
-          {wallet && <p>Redeemed: {itemsRedeemed}</p>}
+          {isActive && wallet && <p>Redeemed: {itemsRedeemed}</p>}
 
-          {wallet && <p>Remaining: {itemsRemaining}</p>}
+          {isActive && wallet && <p>Remaining: {itemsRemaining}</p>}
 
           {!isActive ? <div className='countdown'>
             
             <p>Coming soon</p>
 
             <Countdown
-            date={1633982400000}
+            date={launchDate}
             //onMount={({ completed }) => completed && setIsActive(true)}
             onComplete={() => setIsActive(true)}
             renderer={renderCounter}
@@ -237,8 +257,6 @@ const Mint = (props: MintProps) => {
 
             )}
           </MintContainer>}
-
-
 
         </div>
 
