@@ -199,7 +199,7 @@ const Mint = (props: MintProps) => {
         <h2>MINT<br />MINERDWARFS</h2>
 
         {!wallet && !isActive? (
-          <div style={{float: 'right'}}>
+          <div style={{position: 'absolute', top: 20, right: 10}}>
               <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none'}}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
           </div>
         ): undefined}
@@ -259,10 +259,6 @@ const Mint = (props: MintProps) => {
           </MintContainer>}
 
         </div>
-
-
-
-
         <div className="clouds">
           <img src="img/Top/Clouds/cloud1.png" alt="cloud" />
           <img src="img/Top/Clouds/cloud2.png" alt="cloud" />
