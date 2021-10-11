@@ -222,16 +222,7 @@ const Mint = (props: MintProps) => {
 
           {isActive && wallet && <p>Remaining: {itemsRemaining}</p>} */}
 
-          {!isActive ? <div className='countdown'>
-
-            <p>Coming soon</p>
-
-            <Countdown
-              date={launchDate}
-              //onMount={({ completed }) => completed && setIsActive(true)}
-              onComplete={() => setIsActive(true)}
-              renderer={renderCounter}
-            /></div> : <MintContainer>
+          {<MintContainer>
             {!wallet ? (
               <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
             ) : (
