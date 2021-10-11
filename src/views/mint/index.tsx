@@ -216,11 +216,11 @@ const Mint = (props: MintProps) => {
 
           {isActive && wallet && <p>NFT price: {price} SOL</p>}
 
-          {isActive && wallet && <p>Total Available: {itemsAvailable}</p>}
+          {/* {isActive && wallet && <p>Total Available: {itemsAvailable}</p>}
 
           {isActive && wallet && <p>Redeemed: {itemsRedeemed}</p>}
 
-          {isActive && wallet && <p>Remaining: {itemsRemaining}</p>}
+          {isActive && wallet && <p>Remaining: {itemsRemaining}</p>} */}
 
           {!isActive ? <div className='countdown'>
 
