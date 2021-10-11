@@ -27,6 +27,7 @@ const MintContainer = styled.div``; // add your styles here
 
 const whitelistedWallets = process.env.REACT_APP_WHITELISTED_ACCOUNTS!.split(',');
 
+console.log("WH", whitelistedWallets)
 
 export interface MintProps {
   candyMachineId: anchor.web3.PublicKey;
@@ -240,7 +241,7 @@ const Mint = (props: MintProps) => {
                 variant='text'
               >
                 {isSoldOut ? (
-                  "SOLD OUT"
+                  "MinerDwarfs are SOLD OUT!"
                 ) : isActive ? (
                   isMinting ? (
                     <CircularProgress />
