@@ -227,7 +227,7 @@ const Mint = (props: MintProps) => {
             <p>Coming soon</p>
 
             <Countdown
-              date={1633982399000}
+              date={launchDate}
               //onMount={({ completed }) => completed && setIsActive(true)}
               onComplete={() => setIsActive(true)}
               renderer={renderCounter}
