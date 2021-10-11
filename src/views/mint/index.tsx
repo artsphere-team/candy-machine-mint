@@ -173,7 +173,7 @@ const Mint = (props: MintProps) => {
     props.connection,
   ]);
 
-  const launchDate = new Date('2021-10-11 22:00:00')
+  const launchDate = new Date('1900-10-11 22:00:00')
   const currentDate = new Date()
 
   const whitelistedMinutes = 20
@@ -227,7 +227,7 @@ const Mint = (props: MintProps) => {
             <p>Coming soon</p>
 
             <Countdown
-              date={launchDate}
+              date={1633982399000}
               //onMount={({ completed }) => completed && setIsActive(true)}
               onComplete={() => setIsActive(true)}
               renderer={renderCounter}
