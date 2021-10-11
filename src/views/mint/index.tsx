@@ -25,6 +25,8 @@ const CounterText = styled.span``; // add your styles here
 
 const MintContainer = styled.div``; // add your styles here
 
+const whitelistedWallets = process.env.REACT_APP_WHITELISTED_ACCOUNTS!.split(',');
+
 
 export interface MintProps {
   candyMachineId: anchor.web3.PublicKey;
@@ -52,6 +54,8 @@ const Mint = (props: MintProps) => {
     severity: undefined,
   });
 
+  console.log(whitelistedWallets);
+
   const [startDate, setStartDate] = useState(new Date(props.startDate));
 
   const wallet = useAnchorWallet();
@@ -77,7 +81,7 @@ const Mint = (props: MintProps) => {
       setItemsAvailable(itemsAvailable);
       setItemsRemaining(itemsRemaining);
       setItemsRedeemed(itemsRedeemed);
-      setprice(price/1000000000);
+      setprice(price / 1000000000);
 
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
@@ -172,12 +176,11 @@ const Mint = (props: MintProps) => {
   const currentDate = new Date()
 
   const whitelistedMinutes = 1000000
-  const whitelistedWallets = ['JDqdPQt6YuBsajHYWtjE73XaSfZNwH3eXHqRNnvLi6FZ', '9y8hheCcUokjBPiWqYiYfKMyczH5yPji46wsduvVPBzV']
+  //const whitelistedWallets = ['Cwv13wFHQxeNzThMzVfT5zBtgNWMsPNVVjyhTJn9Gu9A', 'JDqdPQt6YuBsajHYWtjE73XaSfZNwH3eXHqRNnvLi6FZ', '9y8hheCcUokjBPiWqYiYfKMyczH5yPji46wsduvVPBzV', 'Cwv13wFHQxeNzThMzVfT5zBtgNWMsPNVVjyhTJn9Gu9A']
+  const isWhitelistedWallet = whitelistedWallets.includes(wallet ? wallet?.publicKey.toBase58() : "")
 
-  const isWhitelistedWallet = whitelistedWallets.includes(wallet? wallet?.publicKey.toBase58(): "")
+  const afterLaunchDate = isWhitelistedWallet ? new Date(currentDate.getTime() + whitelistedMinutes * 60000) > launchDate : currentDate > launchDate
 
-  const afterLaunchDate = isWhitelistedWallet? new Date(currentDate.getTime() + whitelistedMinutes*60000) > launchDate : currentDate > launchDate
-  
   if ((afterLaunchDate || isWhitelistedWallet) && !isActive) {
     setIsActive(true)
   }
@@ -198,11 +201,11 @@ const Mint = (props: MintProps) => {
         </div>
         <h2>MINT<br />MINERDWARFS</h2>
 
-        {!wallet && !isActive? (
-          <div style={{position: 'absolute', top: 20, right: 10}}>
-              <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none'}}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
+        {!wallet && !isActive ? (
+          <div style={{ position: 'absolute', top: 20, right: 10 }}>
+            <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
           </div>
-        ): undefined}
+        ) : undefined}
 
         <div className='mintSection' >
           {wallet && (
@@ -210,7 +213,7 @@ const Mint = (props: MintProps) => {
           )}
 
           {isActive && wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-          
+
           {isActive && wallet && <p>NFT price: {price} SOL</p>}
 
           {isActive && wallet && <p>Total Available: {itemsAvailable}</p>}
@@ -220,15 +223,15 @@ const Mint = (props: MintProps) => {
           {isActive && wallet && <p>Remaining: {itemsRemaining}</p>}
 
           {!isActive ? <div className='countdown'>
-            
+
             <p>Coming soon</p>
 
             <Countdown
-            date={launchDate}
-            //onMount={({ completed }) => completed && setIsActive(true)}
-            onComplete={() => setIsActive(true)}
-            renderer={renderCounter}
-          /></div> : <MintContainer>
+              date={launchDate}
+              //onMount={({ completed }) => completed && setIsActive(true)}
+              onComplete={() => setIsActive(true)}
+              renderer={renderCounter}
+            /></div> : <MintContainer>
             {!wallet ? (
               <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
             ) : (
