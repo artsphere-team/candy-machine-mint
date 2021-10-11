@@ -27,7 +27,7 @@ const MintContainer = styled.div``; // add your styles here
 
 const whitelistedWallets = process.env.REACT_APP_WHITELISTED_ACCOUNTS!.split(',');
 
-console.log("WH", whitelistedWallets)
+//console.log("WH", whitelistedWallets)
 
 export interface MintProps {
   candyMachineId: anchor.web3.PublicKey;
@@ -55,7 +55,7 @@ const Mint = (props: MintProps) => {
     severity: undefined,
   });
 
-  console.log(whitelistedWallets);
+  //console.log(whitelistedWallets);
 
   const [startDate, setStartDate] = useState(new Date(props.startDate));
 
