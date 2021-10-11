@@ -242,7 +242,7 @@ const Mint = (props: MintProps) => {
                 ) : (
                   <span className='countdown'><Countdown
                     date={1633982400000}
-                    //onMount={({ completed }) => completed && setIsActive(true)}
+                    onMount={({ completed }) => completed && setIsActive(true)}
                     onComplete={() => setIsActive(true)}
                     renderer={renderCounter}
                   /></span>
