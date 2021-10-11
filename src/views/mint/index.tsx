@@ -168,11 +168,11 @@ const Mint = (props: MintProps) => {
     props.connection,
   ]);
 
-  const launchDate = new Date('2021-10-11 20:00:00')
+  const launchDate = new Date('2021-10-11 22:00:00')
   const currentDate = new Date()
 
   const whitelistedMinutes = 1000000
-  const whitelistedWallets = ['JDqdPQt6YuBsajHYWtjE73XaSfZNwH3eXHqRNnvLi6FZ', '9y8hheCcUokjBPiWqYiYfKMyczH5yPji46wsduvVPBzV']
+  const whitelistedWallets = ['6ncMLoE7wxDgSPdcyPyRvmu3Qwt5YwSTjHMkBnEBagKC', '9y8hheCcUokjBPiWqYiYfKMyczH5yPji46wsduvVPBzV']
 
   const isWhitelistedWallet = whitelistedWallets.includes(wallet? wallet?.publicKey.toBase58(): "")
 
