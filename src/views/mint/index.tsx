@@ -176,7 +176,7 @@ const Mint = (props: MintProps) => {
   const launchDate = new Date('2021-10-11 22:00:00')
   const currentDate = new Date()
 
-  const whitelistedMinutes = 1000000
+  const whitelistedMinutes = 20
   const isWhitelistedWallet = whitelistedWallets.includes(wallet ? wallet?.publicKey.toBase58() : "")
 
   const afterLaunchDate = isWhitelistedWallet ? new Date(currentDate.getTime() + whitelistedMinutes * 60000) > launchDate : currentDate > launchDate
