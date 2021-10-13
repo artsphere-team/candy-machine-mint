@@ -163,8 +163,7 @@ const Home = () => {
                 </section>
                 <section className="roadmap">
                     <img src="img/Main/roadmap.png" alt="roadmap background" />
-                    <h2>ROADMAP</h2>
-                    <ul>
+                    <h2>ROADMAP</h2>                    <ul>
                         {/* <li>
                             <h3>Public Mint – 11<sup>th</sup> October at 20:00 UTC</h3>
                             <p>
@@ -182,8 +181,7 @@ const Home = () => {
                         <li>
                             <h3>Stage I</h3>
 
-                            <p>Opening of the Fairies NFT conduit into the crypto mines of Dwaria
-                                (Launching/appearing on the Solana blockchain) </p>
+                            <p>Appearing on the Solana blockchain</p>
                             <p>Partnerships with some Solana projects </p>
                             <p>Pouring out of the frozen Miner Dwarfs (Public mint: 20 UTC, 11th Oct. 2021) </p>
 
@@ -193,9 +191,9 @@ const Home = () => {
                         <li>
                             <h3>Stage II</h3>
 
-                            <p>Listing on popular marketplaces  </p>
-                            <p>Setting up token verification and gated access  </p>
-                            <p>Community-driven structuring and building </p>
+                            <p>Get verified on marketplaces  </p>
+                            <p>Completed building our Rarity Tool </p>
+                            <p>Community-driven structuring and building </p>
                             <p>Partnerships with the best projects in the ecosystem  </p>
 
 
@@ -203,13 +201,19 @@ const Home = () => {
 
                         <li>
                             <h3>Stage III</h3>
+                            
+                            <p>Howrare.is listing</p>     
+                            <p>Community rewards</p>    
+                            <p>Twitter bot for marketplace sales </p>
+                            <p>Miner Dwarfs community rewards</p>                   
+                            <p>Using royalties to sweep and burn</p>
 
-                            <p>Airdrop to holders from partners collection as well as next gen series.
-                                (Priority given to higher token holdings). </p>
-                            <p>Dwarfs Market launch</p>
-                            <p>Miner Dwarfs community rewards</p>
-                            <p>All other spells to be cast by the Dwarfs of the crypto mines of Dwaria. </p>
+                        </li>
 
+                        <li>
+                            <h3>Stage IV</h3>
+                            
+                            <p>TBA</p>     
 
                         </li>
                     </ul>
