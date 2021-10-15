@@ -57,9 +57,11 @@ const Home = () => {
                 <section className="firstSection">
                     <h2>MINERDWARFS</h2>
                     <p>
-                        An original collection of 5555 randomly generated NFTs,
-                        using more than 500 hand drawn assets
-                        with a robust and unique rarity system implementation.
+                    A deflationary collection of 3333 randomly generated NFTs, using more than 500 hand drawn assets with a robust and unique rarity system implementation.
+                    <br/>
+                    Royalties will be collected to sweep the floor. When we collect enough royalities, we will sweep the floor of the Miner Dwarfs marketplaces. 
+                    <br/>
+                    Those NFTs will then be burned, reducing their supply and subsequently increasing their scarcity and value.
                     </p>
                 </section>
                 <section className="aboutUs">
@@ -155,7 +157,7 @@ const Home = () => {
                         <li>
                             <h3>Public Mint – 11<sup>th</sup> October at 20:00 UTC</h3>
                             <p >
-                                The 5555 MinerDwarfs will be released to the public.
+                                The 3333 MinerDwarfs will be released to the public.
                                 More Details on Twitter and Discord.
                             </p>
                         </li>
@@ -182,10 +184,8 @@ const Home = () => {
                         <li>
                             <h3>Stage I</h3>
 
-                            <p>Opening of the Fairies NFT conduit into the crypto mines of Dwaria
-                                (Launching/appearing on the Solana blockchain) </p>
-                            <p>Partnerships with some Solana projects </p>
-                            <p>Pouring out of the frozen Miner Dwarfs (Public mint: 20 UTC, 11th Oct. 2021) </p>
+                            <p>Launching on the Solana blockchain</p>
+                            <p>Public mint: 20 UTC, 11th Oct. 2021</p>
 
 
                         </li>
@@ -193,10 +193,9 @@ const Home = () => {
                         <li>
                             <h3>Stage II</h3>
 
-                            <p>Listing on popular marketplaces  </p>
-                            <p>Setting up token verification and gated access  </p>
-                            <p>Community-driven structuring and building </p>
-                            <p>Partnerships with the best projects in the ecosystem  </p>
+                            <p>Getting verified on multiple marketplaces</p>
+                            <p>Community-driven building and organic marketing</p>
+                            <p>Deploying a rarity tool</p>
 
 
                         </li>
@@ -204,11 +203,9 @@ const Home = () => {
                         <li>
                             <h3>Stage III</h3>
 
-                            <p>Airdrop to holders from partners collection as well as next gen series.
-                                (Priority given to higher token holdings). </p>
-                            <p>Dwarfs Market launch</p>
-                            <p>Miner Dwarfs community rewards</p>
-                            <p>All other spells to be cast by the Dwarfs of the crypto mines of Dwaria. </p>
+                            <p>Implementing Twitter Sales-bot</p>
+                            <p>Howrare.is listing</p>
+                            <p>Using royalties to sweep and burn</p>
 
 
                         </li>
