@@ -19,5 +19,6 @@ export interface MetaState {
 
   export interface MetaContextState extends MetaState {
     isLoading: boolean;
+    fetchedData: boolean;
     pullAllMetadata: () => void;
   }

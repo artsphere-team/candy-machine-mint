@@ -10,6 +10,7 @@ import { ArtCard } from "../../components/ArtCard";
 import { Col, Layout, Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import { useMeta } from "../../contexts/meta/meta";
+//import {fetchingData} from  "../../contexts/meta/meta"
 
 export enum ArtworkViewState {
     Metaplex = '0',
@@ -18,8 +19,7 @@ export enum ArtworkViewState {
   }
 
 const Show = () => {
-    const {metadata} = useMeta()
-    const [isLoading, setisLoading] = useState(false)
+    const {metadata, isLoading} = useMeta()
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata1, setmetadata1] = useState([] as any)
@@ -50,8 +50,6 @@ const Show = () => {
         setownedMinerdwarfs(metadata.filter((m: any) => m.data.name.includes("MinerDwarf")));
         setissuedownedMinerdwarfs(true)
     }
-    // if (metadata && metadata.length > 0)
-    //     console.log("[1] METADADATA", metadata)
 
     
 

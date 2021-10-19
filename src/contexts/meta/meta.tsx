@@ -5,8 +5,6 @@ import { getMints } from "../../logic/utils/get-mints";
 import { MetaContextState, MetaState } from "./types";
 import { AccountInfo as TokenAccountInfo} from '@solana/spl-token';
 
-var fetchingData = false
-
 export const getEmptyMetaState = (): MetaState => ({
     metadata: [],
     fetchInProgress: false
@@ -21,6 +19,7 @@ export interface TokenAccount {
 const MetaContext = React.createContext<MetaContextState>({
     ...getEmptyMetaState(),
     isLoading: false,
+    fetchedData: false,
     // @ts-ignore
     update: () => [AuctionData, BidderMetadata, BidderPot],
   });
@@ -34,12 +33,15 @@ export const useMeta = () => {
 export function MetaProvider({ children = null as any }) {
   const connection = useConnection();
 
-  var { metadata, isLoading} = useMeta();
+  var { metadata} = useMeta();
 
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
   const [page, setPage] = useState(0);
   const [metadataLoaded, setMetadataLoaded] = useState(false);
   const [lastLength, setLastLength] = useState(0);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [fetchedData, setfetchedData] = useState(false);
 
   const wallet = useAnchorWallet();
 
@@ -49,23 +51,23 @@ export function MetaProvider({ children = null as any }) {
 
   async function update() {
       //console.log("UPDATE")
-      if (wallet && !fetchingData) {
-        fetchingData = true
+      if (wallet && !fetchedData) {
+        setfetchedData(true)
         var metadata = await getMints(wallet.publicKey.toBase58(), url);
         setState((current: any) => ({
           ...current,
           metadata}))
         //console.log("nextstate", metadata, state)
         setMetadataLoaded(true)
+        setIsLoading(false)
         //console.log("STATE", nextState)
       }
       
   }
 
+  if (!metadataLoaded) {
 
-  if (!metadataLoaded && metadata.length < 1) {
-
-    if (!fetchingData)
+    if (!fetchedData)
       console.log("Updating...")
       update()
   }
