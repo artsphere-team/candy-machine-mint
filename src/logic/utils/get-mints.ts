@@ -36,13 +36,30 @@ export class collection {
   }
 }
 
+type MetadataFile = {
+    uri: string;
+    type: string;
+  };
+
+type FileOrString = MetadataFile | string;
+
+export class files {
+    type: string;
+    uri: string;
+  
+    constructor(args: { type: string; uri: string }) {
+      this.type = args.type;
+      this.uri = args.uri;
+    }
+  }
+
 export type Attribute = {
   trait_type?: string;
   display_type?: string;
   value: string | number;
 };
 
-class Data {
+export class Data {
   name: string;
   symbol: string;
   description: string;
@@ -55,6 +72,7 @@ class Data {
   alreadyQueried: boolean;
   collection: collection;
   category: string;
+  files: FileOrString[]
   constructor(args: {
     name: string;
     symbol: string;
@@ -68,6 +86,7 @@ class Data {
     alreadyQueried: boolean;
     collection: collection;
     category: string;
+    files: FileOrString[]
   }) {
     this.name = args.name;
     this.symbol = args.symbol;
@@ -81,6 +100,7 @@ class Data {
     this.alreadyQueried = args.alreadyQueried;
     this.collection = args.collection;
     this.category = args.category
+    this.files = args.files
   }
 }
 
@@ -347,7 +367,7 @@ export const getMints = async (creatorId: string, url: string) => {
     var metadata: any[] = [] 
     await ownedTokenAccounts.map(async (m, idx) => {
     let met = await getMetadata(new anchor.web3.PublicKey(m.info.mint), url)
-    metadata[idx] = met? met.data: {}
+    metadata[idx] = {"info":m.info, "data":met? met.data: {}}
     })
 
     if (ownedTokenAccounts.length > 0) {
@@ -358,37 +378,41 @@ export const getMints = async (creatorId: string, url: string) => {
 
     if (metadata.length > 0) {
     metadata.map((m, idx) => {
-        var _uri = metadata[idx].uri || "";
+        var _uri = metadata[idx].data.uri || "";
         fetch(_uri)
             .then(async (_) => {
             try {
                 const data = await _.json();
 
                 if (data?.description) {
-                m.description = data?.description;
+                m.data.description = data?.description;
                 }
 
                 if (data?.image) {
-                m.image = data?.image;
+                m.data.image = data?.image;
                 }
 
                 if (data?.animation_url) {
-                m.animation_url = data?.animation_url;
+                m.data.animation_url = data?.animation_url;
                 }
 
                 if (data?.collection) {
-                m.collection = data?.collection;
+                m.data.collection = data?.collection;
                 }
 
                 if (data?.attributes) {
-                m.attributes = data?.attributes;
+                m.data.attributes = data?.attributes;
                 }
 
                 if (data?.properties.category) {
-                m.category = data?.properties.category;
+                m.data.category = data?.properties.category;
                 }
 
-                m.alreadyQueried = true
+                if (data?.properties.files) {
+                m.data.files = data?.properties.files;
+                }
+
+                m.data.alreadyQueried = true
 
                 return m
             } catch (e) {
@@ -404,7 +428,7 @@ export const getMints = async (creatorId: string, url: string) => {
     );
     }
 
-    console.log("LOADED!", metadata)
+    //console.log("LOADED!", metadata)
 
     return metadata
     // download(

@@ -3,14 +3,31 @@ import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import { shortenAddress } from "../../logic/candy-machine";
-import {getMints} from "../../logic/utils/get-mints"
+import { getMints } from "../../logic/utils/get-mints"
+import Masonry from 'react-masonry-css';
+import { CardLoader } from '../../components/Loader'
+import { ArtCard } from "../../components/ArtCard";
+import { Col, Layout, Row } from "antd";
+import { Content } from "antd/lib/layout/layout";
+
+export enum ArtworkViewState {
+    Metaplex = '0',
+    Owned = '1',
+    Created = '2',
+  }
 
 const Show = () => {
     const [isLoading, setisLoading] = useState(false)
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata, setmetadata] = useState([] as any)
-    const [ownedMinerdwarfs, setownedMinerdwarfs] = useState([])
+    const [ownedMinerdwarfs, setownedMinerdwarfs] = useState([] as any)
+    const breakpointColumnsObj = {
+        default: 4,
+        1100: 3,
+        700: 2,
+        500: 1,
+    };
 
     const wallet = useAnchorWallet();
 
@@ -28,14 +45,39 @@ const Show = () => {
         
     if (metadata.length > 0 && !issuedownedMinerdwarfs) {
         console.log("INNER", metadata)
-        setownedMinerdwarfs(metadata.filter((m: any) => m.name.includes("MinerDwarf")));
+        setownedMinerdwarfs(metadata.filter((m: any) => m.data.name.includes("MinerDwarf")));
         setissuedownedMinerdwarfs(true)
     }
 
 
-    console.log("DATA", metadata, ownedMinerdwarfs)
+    //console.log("DATA", metadata, ownedMinerdwarfs)
 
-    //if (nft_metadata && wallet) {setisLoading(false)}
+    
+
+  const artworkGrid = (
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="my-masonry-grid"
+      columnClassName="my-masonry-grid_column"
+    >
+      {!isLoading
+        //@ts-ignore
+        ? ownedMinerdwarfs.map((m, idx) => {
+            const id = m.info.mint;
+            return (
+                <ArtCard
+                  key={id}
+                  pubkey={m.pubkey}
+                  preview={false}
+                  height={250}
+                  width={250}
+                  data={m.data}
+                />
+            );
+          })
+        : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
+    </Masonry>
+  );
 
 
     return (
@@ -69,6 +111,16 @@ const Show = () => {
                 {!wallet && <p>Not connected</p>}
                 {isLoading && <p>Loading ... </p>}
                 {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length>1?"s":""}!</p>}
+
+                <Layout style={{ margin: 0, marginTop: 30 }}>
+                    <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <Col style={{ width: '100%', marginTop: 10 }}>
+                            <Row>
+                                {artworkGrid}
+                            </Row>
+                        </Col>
+                    </Content>
+                </Layout>
             </div>
             </header>
 
