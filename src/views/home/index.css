@@ -14,6 +14,7 @@ header {
     background: linear-gradient(to bottom, #86C6F3, #5B86E5);
     overflow: hidden;
     position: relative;
+    overflow-y: scroll;
 }
 
 header nav ul {

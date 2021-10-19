@@ -67,7 +67,7 @@ const Show = () => {
             return (
                 <ArtCard
                   key={id}
-                  pubkey={m.pubkey}
+                  pubkey={id}
                   preview={false}
                   height={250}
                   width={250}
