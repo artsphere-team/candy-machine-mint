@@ -3,6 +3,7 @@ import { deserializeUnchecked } from 'borsh';
 import * as anchor from "@project-serum/anchor";
 import { PublicKey, AccountInfo } from "@solana/web3.js";
 import { useState } from 'react';
+import { MetaState } from '../../contexts/meta/types';
 export const METADATA_PREFIX = "metadata";
 
 class Creator {
@@ -340,23 +341,11 @@ export async function getMetadata(pubkey: PublicKey, url: string) {
   return metadata;
 }
 
-export const getMints = async (creatorId: string, url: string) => {
+export const getMints = async (creatorId: string, url: string, tempCache?: MetaState) => {
 
     const connection = new anchor.web3.Connection(url);
-    // const a = await connection.getProgramAccounts(
-    // new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s'),
-    // {
-    //     filters: [
-    //     {
-    //         "memcmp": {
-    //         "offset": 8,
-    //         "bytes": creatorId
-    //         }
-    //     }
-    //     ]
-    // }
-    // )
-    // const deserialized = a.map(b=> deserializeUnchecked(METADATA_SCHEMA, Metadata, b.account.data));
+
+    //console.log("TEMPCACHE", tempCache)
 
     const b = await connection.getParsedTokenAccountsByOwner(new PublicKey(creatorId), {
     programId: new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'),

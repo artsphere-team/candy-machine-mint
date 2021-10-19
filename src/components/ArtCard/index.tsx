@@ -4,6 +4,7 @@ import { ArtContent } from './../ArtContent';
 // import { useArt } from '../../hooks';
 import { PublicKey } from '@solana/web3.js';
 import { Data } from '../../logic/utils/get-mints';
+import { useMeta } from '../../contexts/meta/meta';
 
 const { Meta } = Card;
 
@@ -69,9 +70,14 @@ export const ArtCard = (props: ArtCardProps) => {
     data,
     ...rest
   } = props;
+  var { metadata} = useMeta();
   const art = data
   creators = art?.creators || creators || [];
   name = art?.name || name || ' ';
+  image = art?.image || image || ''
+  // console.log("[2]", art, image)
+
+  //console.log("[2] METADATA", metadata)
 
   const card = (
     <Card
@@ -94,7 +100,7 @@ export const ArtCard = (props: ArtCardProps) => {
           )}
           <ArtContent
             pubkey={pubkey}
-            uri={image}
+            image={image}
             animationURL={animationURL}
             category={category}
             preview={preview}

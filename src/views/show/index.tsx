@@ -9,6 +9,7 @@ import { CardLoader } from '../../components/Loader'
 import { ArtCard } from "../../components/ArtCard";
 import { Col, Layout, Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
+import { useMeta } from "../../contexts/meta/meta";
 
 export enum ArtworkViewState {
     Metaplex = '0',
@@ -17,10 +18,11 @@ export enum ArtworkViewState {
   }
 
 const Show = () => {
+    var { metadata} = useMeta();
     const [isLoading, setisLoading] = useState(false)
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
-    const [metadata, setmetadata] = useState([] as any)
+    const [metadata1, setmetadata1] = useState([] as any)
     const [ownedMinerdwarfs, setownedMinerdwarfs] = useState([] as any)
     const breakpointColumnsObj = {
         default: 4,
@@ -38,19 +40,18 @@ const Show = () => {
         console.log("IssuedNFTLoading")
         setissuedNftLoading(true)
         setisLoading(true)
-        getMints(wallet.publicKey.toBase58(), url).then((items) => {setmetadata(items); setisLoading(false);})
+        getMints(wallet.publicKey.toBase58(), url).then((items) => {setmetadata1(items); setisLoading(false);})
         
     }
 
         
-    if (metadata.length > 0 && !issuedownedMinerdwarfs) {
-        console.log("INNER", metadata)
-        setownedMinerdwarfs(metadata.filter((m: any) => m.data.name.includes("MinerDwarf")));
+    if (metadata1.length > 0 && !issuedownedMinerdwarfs) {
+        //console.log("INNER", metadata1)
+        setownedMinerdwarfs(metadata1.filter((m: any) => m.data.name.includes("MinerDwarf")));
         setissuedownedMinerdwarfs(true)
     }
-
-
-    //console.log("DATA", metadata, ownedMinerdwarfs)
+    // if (metadata && metadata.length > 0)
+    //     console.log("[1] METADADATA", metadata)
 
     
 
@@ -64,10 +65,12 @@ const Show = () => {
         //@ts-ignore
         ? ownedMinerdwarfs.map((m, idx) => {
             const id = m.info.mint;
+            //console.log("[1] SHOW", m.data, id, metadata)
             return (
                 <ArtCard
                   key={id}
                   pubkey={id}
+                  image={m.data.image}
                   preview={false}
                   height={250}
                   width={250}

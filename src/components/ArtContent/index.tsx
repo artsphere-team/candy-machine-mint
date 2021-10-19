@@ -8,6 +8,9 @@ import { getLast } from '../../logic/utils/utils';
 import { Cache } from 'three';
 import { useInView } from 'react-intersection-observer';
 import {Data} from '../../logic/utils/get-mints'
+import {getMetadata} from '../../logic/utils/get-mints'
+import * as anchor from "@project-serum/anchor";
+import { useMeta } from '../../contexts/meta/meta';
 
 type MetadataFile = {
     uri: string;
@@ -289,7 +292,8 @@ export const ArtContent = ({
   animationURL,
   files,
   artView,
-  data
+  data,
+  image
 }: {
   category?: string;
   className?: string;
@@ -302,16 +306,24 @@ export const ArtContent = ({
   allowMeshRender?: boolean;
   pubkey?: PublicKey | string;
   uri?: string;
+  image?:string;
   animationURL?: string;
   files?: (MetadataFile | string)[];
   artView?: boolean;
   data:Data
 }) => {
+  var { metadata} = useMeta();
   const id = pubkeyToString(pubkey);
-  const { ref, inView } = useInView();
+  var { ref} = useInView();
+  
+  var metadata_uri = data.image
+  if (metadata)
+    metadata_uri = metadata.filter(m => pubkeyToString(m.info.mint) == id)[0].data.image
+
+  //console.log("[3]", uri, data, image, "metadata_uri", metadata_uri)//, ownedMinerdwarf)
 
   if (pubkey && data) {
-    uri = data.image;
+    uri = data.image || metadata_uri;
     animationURL = data.animation_url;
   }
 
