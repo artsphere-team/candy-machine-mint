@@ -31,6 +31,8 @@ export const useMeta = () => {
 export function MetaProvider({ children = null as any }) {
   const connection = useConnection();
 
+  var { metadata} = useMeta();
+
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
   const [page, setPage] = useState(0);
   const [metadataLoaded, setMetadataLoaded] = useState(false);
@@ -59,7 +61,8 @@ export function MetaProvider({ children = null as any }) {
   }
 
 
-  if (!metadataLoaded) {
+  if (!metadataLoaded && metadata.length < 1) {
+    console.log("Updating...")
     update()
   }
 

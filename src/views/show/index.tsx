@@ -18,7 +18,6 @@ export enum ArtworkViewState {
   }
 
 const Show = () => {
-    var { metadata} = useMeta();
     const [isLoading, setisLoading] = useState(false)
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
