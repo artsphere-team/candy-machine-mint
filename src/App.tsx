@@ -22,6 +22,7 @@ import {
 import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import Mint from "./views/mint";
+import Show from "./views/show"
 
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS!
@@ -98,6 +99,7 @@ const App = () => {
                   treasury={treasury}
                   txTimeout={txTimeout}
                 />} />
+                <Route path="/show" component={() => <Show />} />
                 <Route path="/" component={() => <Home />} />
               </Switch>
             </WalletDialogProvider>

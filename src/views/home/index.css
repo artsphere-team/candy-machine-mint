@@ -88,6 +88,14 @@ header .designButton {
     width: 300px;
 }
 
+header .showButton {
+    position: absolute;
+    top: 675px;
+    left: 240px;
+    z-index: 5;
+    width: 300px;
+}
+
 header .rarityToolButton {
     position: absolute;
     top: 300px;
@@ -104,6 +112,17 @@ header .mintSection {
     position: absolute;
     text-align: center;
     top: 320px;
+    text-shadow: 2px 2px 0 #201414aa, 3px 3px 0 #ffffff50, -1px -1px 0 #ffffff50;
+    font-family: pixelFont;
+    color: #251717;
+    font-size: 33px;
+    z-index: 5;
+    width: 60vw;
+    margin-left: 20vw;
+    padding-bottom: 50px;
+}
+
+header .walletText {
     text-shadow: 2px 2px 0 #201414aa, 3px 3px 0 #ffffff50, -1px -1px 0 #ffffff50;
     font-family: pixelFont;
     color: #251717;
