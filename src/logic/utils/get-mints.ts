@@ -353,6 +353,8 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
 
     const ownedTokenAccounts = b.value.filter(item => item.account.data.parsed.info.tokenAmount.uiAmount > 0).map(i => i.account.data.parsed)
 
+    console.log("Getting metadata for", ownedTokenAccounts.length, "token accounts", ownedTokenAccounts)
+
     var metadata: any[] = [] 
     await ownedTokenAccounts.map(async (m, idx) => {
     let met = await getMetadata(new anchor.web3.PublicKey(m.info.mint), url)
@@ -360,64 +362,74 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
     })
 
     if (ownedTokenAccounts.length > 0) {
-    while (metadata.length == 0) {
-        await new Promise(resolve => setTimeout(resolve, 500))
-    }
+      while (metadata.length == 0) {
+          await new Promise(resolve => setTimeout(resolve, 500))
+      }
     }
 
     if (metadata.length > 0) {
-    metadata.map((m, idx) => {
-        var _uri = metadata[idx].data.uri || "";
-        fetch(_uri)
-            .then(async (_) => {
-            try {
-                const data = await _.json();
+      metadata.map((m, idx) => {
+          var _uri = m.data.uri || "";
+          if (!m.data.alreadyQueried) {
+          if (_uri == "" || !_uri.includes("arweave.net"))
+            return undefined
 
-                if (data?.description) {
-                m.data.description = data?.description;
-                }
+          fetch(_uri)
+              .then(async (_) => {
+              console.log(`${idx} - Getting ${m.data.name}`)
+              await new Promise(resolve => setTimeout(resolve, 500))
+              try {
+                  const data = await _.json();
 
-                if (data?.image) {
-                m.data.image = data?.image;
-                }
+                  if (data?.description) {
+                  m.data.description = data?.description;
+                  }
 
-                if (data?.animation_url) {
-                m.data.animation_url = data?.animation_url;
-                }
+                  if (data?.image) {
+                  m.data.image = data?.image;
+                  }
 
-                if (data?.collection) {
-                m.data.collection = data?.collection;
-                }
+                  if (data?.animation_url) {
+                  m.data.animation_url = data?.animation_url;
+                  }
 
-                if (data?.attributes) {
-                m.data.attributes = data?.attributes;
-                }
+                  if (data?.collection) {
+                  m.data.collection = data?.collection;
+                  }
 
-                if (data?.properties.category) {
-                m.data.category = data?.properties.category;
-                }
+                  if (data?.attributes) {
+                  m.data.attributes = data?.attributes;
+                  }
 
-                if (data?.properties.files) {
-                m.data.files = data?.properties.files;
-                }
+                  if (data?.properties.category) {
+                  m.data.category = data?.properties.category;
+                  }
 
-                m.data.alreadyQueried = true
+                  if (data?.properties.files) {
+                  m.data.files = data?.properties.files;
+                  }
 
-                return m
-            } catch (e) {
-                console.log("JSON DATA isMetadataPartOfStore ERROR:", e);
-                return undefined;
-            }
-            })
-            .catch((e) => {
-            console.log("JSON DATA isMetadataPartOfStore ERROR 2:", e);
-            return undefined;
-            });
-        }
-    );
+                  m.data.alreadyQueried = true
+
+                  return m
+              } catch (e) {
+                  console.log("JSON DATA isMetadataPartOfStore ERROR:", e, _);
+                  return undefined;
+              }
+              })
+              .catch((e) => {
+              console.log("JSON DATA isMetadataPartOfStore ERROR 2:", e);
+              return undefined;
+              });
+      }}
+      )
     }
 
-    //console.log("LOADED!", metadata)
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    metadata = metadata.filter(m => m.data.uri != undefined);
+
+    console.log("LOADED!", metadata)
 
     return metadata
     // download(

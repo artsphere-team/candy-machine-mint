@@ -18,6 +18,7 @@ export enum ArtworkViewState {
   }
 
 const Show = () => {
+    const {metadata} = useMeta()
     const [isLoading, setisLoading] = useState(false)
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
@@ -33,20 +34,20 @@ const Show = () => {
     const wallet = useAnchorWallet();
 
 
-    let url = "https://api.mainnet-beta.solana.com"
+    // let url = "https://api.mainnet-beta.solana.com"
 
-    if (wallet && !issuedNftLoading) {
-        console.log("IssuedNFTLoading")
-        setissuedNftLoading(true)
-        setisLoading(true)
-        getMints(wallet.publicKey.toBase58(), url).then((items) => {setmetadata1(items); setisLoading(false);})
+    // if (wallet && !issuedNftLoading) {
+    //     console.log("IssuedNFTLoading")
+    //     setissuedNftLoading(true)
+    //     setisLoading(true)
+    //     getMints(wallet.publicKey.toBase58(), url).then((items) => {setmetadata1(items); setisLoading(false);})
         
-    }
+    // }
 
         
-    if (metadata1.length > 0 && !issuedownedMinerdwarfs) {
+    if (metadata && metadata.length > 0 && !issuedownedMinerdwarfs) {
         //console.log("INNER", metadata1)
-        setownedMinerdwarfs(metadata1.filter((m: any) => m.data.name.includes("MinerDwarf")));
+        setownedMinerdwarfs(metadata.filter((m: any) => m.data.name.includes("MinerDwarf")));
         setissuedownedMinerdwarfs(true)
     }
     // if (metadata && metadata.length > 0)

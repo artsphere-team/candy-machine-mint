@@ -5,8 +5,11 @@ import { getMints } from "../../logic/utils/get-mints";
 import { MetaContextState, MetaState } from "./types";
 import { AccountInfo as TokenAccountInfo} from '@solana/spl-token';
 
+var fetchingData = false
+
 export const getEmptyMetaState = (): MetaState => ({
-    metadata: []
+    metadata: [],
+    fetchInProgress: false
   });
 
 export interface TokenAccount {
@@ -31,7 +34,7 @@ export const useMeta = () => {
 export function MetaProvider({ children = null as any }) {
   const connection = useConnection();
 
-  var { metadata} = useMeta();
+  var { metadata, isLoading} = useMeta();
 
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
   const [page, setPage] = useState(0);
@@ -40,15 +43,14 @@ export function MetaProvider({ children = null as any }) {
 
   const wallet = useAnchorWallet();
 
-  const [isLoading, setIsLoading] = useState(true);
-
   let url = "https://api.mainnet-beta.solana.com"
 
   //console.log("META")
 
   async function update() {
       //console.log("UPDATE")
-      if (wallet) {
+      if (wallet && !fetchingData) {
+        fetchingData = true
         var metadata = await getMints(wallet.publicKey.toBase58(), url);
         setState((current: any) => ({
           ...current,
@@ -62,8 +64,10 @@ export function MetaProvider({ children = null as any }) {
 
 
   if (!metadataLoaded && metadata.length < 1) {
-    console.log("Updating...")
-    update()
+
+    if (!fetchingData)
+      console.log("Updating...")
+      update()
   }
 
   return (
