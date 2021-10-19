@@ -104,7 +104,7 @@ export class Data {
   }
 }
 
-class Metadata {
+export class Metadata {
   key: MetadataKey;
   updateAuthority: PublicKey;
   mint: PublicKey;

@@ -38,7 +38,7 @@
     "@google/model-viewer": "^1.7.2"
   },
   "scripts": {
-    "start": "lerna run start --scope @oyster/common",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
