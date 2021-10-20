@@ -13,3 +13,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.my-masonry-grid {
+  border: 2px solid red;
+  
+  
+}
+
+.my-masonry-grid_column {
+
+  border: 2px solid yellow
+}
+
+.showroom-section {
+  position: absolute;
+    text-align: center;
+    top: 350px;
+    text-shadow: 2px 2px 0 #201414aa, 3px 3px 0 #ffffff50, -1px -1px 0 #ffffff50;
+    font-family: pixelFont;
+    color: #251717;
+    font-size: 33px;
+    z-index: 5;
+    width: 100vw;
+    margin-left: 0vw;
+    padding-bottom: 50px;
+}
