@@ -358,6 +358,8 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
     var metadata: any[] = [] 
     await ownedTokenAccounts.map(async (m, idx) => {
     let met = await getMetadata(new anchor.web3.PublicKey(m.info.mint), url)
+    if (met)
+      met.data.alreadyQueried = false
     metadata[idx] = {"info":m.info, "data":met? met.data: {}}
     })
 
@@ -373,6 +375,7 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
           if (!m.data.alreadyQueried) {
             if (_uri == "" || !_uri.includes("arweave.net")) {
               console.log(`${idx} - NOT Getting ${m.data.name}`)
+              m.data.alreadyQueried = true
               return undefined
             }
             fetch(_uri)
@@ -414,19 +417,25 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
 
                     return m
                 } catch (e) {
-                    console.log("JSON DATA isMetadataPartOfStore ERROR:", e, _);
-                    return undefined;
+                  console.log("JSON DATA isMetadataPartOfStore ERROR:", e, _);
+                  m.data.alreadyQueried = true
+                  return undefined;
                 }
                 })
                 .catch((e) => {
-                console.log("JSON DATA isMetadataPartOfStore ERROR 2:", e);
-                return undefined;
+                  console.log("JSON DATA isMetadataPartOfStore ERROR 2:", e);
+                  m.data.alreadyQueried = true
+                  return undefined;
                 });
-      }}
+          }
+        }
       )
     }
 
-    await new Promise(resolve => setTimeout(resolve, 500))
+    while (metadata.map((m) => m.data.alreadyQueried).indexOf(false) > -1) {
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      console.log("Querying metadata...")
+    }
 
     metadata = metadata.filter(m => m.data.uri != undefined);
 

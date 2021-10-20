@@ -44,7 +44,6 @@ const Show = () => {
                 //@ts-ignore
                 ? ownedMinerdwarfs.map((m, idx) => {
                     const id = m.info.mint;
-                    //console.log("[1] SHOW", m.data, id, metadata)
                     return (
                         <ArtCard
                             key={id}

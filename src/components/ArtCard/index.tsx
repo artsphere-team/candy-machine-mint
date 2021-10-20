@@ -71,11 +71,22 @@ export const ArtCard = (props: ArtCardProps) => {
     data,
     ...rest
   } = props;
-  var { metadata} = useMeta();
+  var { metadata, isLoading} = useMeta();
   const art = data
   creators = art?.creators || creators || [];
   name = art?.name || name || ' ';
+
   image = art?.image || image || ''
+
+  if (!isLoading){
+    var met_img = metadata.filter(m => pubkeyToString(m.info.mint) == pubkey)[0]
+
+    if (met_img?.data) {
+      image = met_img.data.image
+      console.log("pubkey", isLoading, met_img, pubkey, "image", met_img.data.image, image)
+    }
+  }
+
 
 
   const card = (
@@ -137,4 +148,8 @@ export const ArtCard = (props: ArtCardProps) => {
   );
 
   return card
+};
+
+const pubkeyToString = (key: PublicKey | null | string = '') => {
+  return typeof key === 'string' ? key : key?.toBase58() || '';
 };

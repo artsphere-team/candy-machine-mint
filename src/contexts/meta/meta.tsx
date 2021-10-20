@@ -45,7 +45,28 @@ export function MetaProvider({ children = null as any }) {
 
   const wallet = useAnchorWallet();
 
-  let url = "https://api.mainnet-beta.solana.com"
+  const ENDPOINTS = [
+    {
+      name: 'mainnet-beta',
+      endpoint: 'https://api.metaplex.solana.com/',
+    },
+    {
+      name: 'mainnet-beta (Solana)',
+      endpoint: 'https://api.mainnet-beta.solana.com',
+    },
+    {
+      name: 'mainnet-beta (Serum)',
+      endpoint: 'https://solana-api.projectserum.com/',
+    },
+    {
+      name: 'testnet',
+      endpoint: 'https://api.testnet.solana.com',
+    },
+    {
+      name: 'devnet',
+      endpoint: 'https://api.devnet.solana.com',
+    },
+  ];
 
   //console.log("META")
 
@@ -54,6 +75,8 @@ export function MetaProvider({ children = null as any }) {
       if (wallet && !fetchingData) {
         console.log("UPDATE", fetchingData)
         fetchingData = true
+
+        var url = ENDPOINTS[0].endpoint
         var metadata = await getMints(wallet.publicKey.toBase58(), url);
         var ownedMinerDwarfsMeta = metadata.filter((m) => m.data.name && m.data.name.includes("Miner"))
         setMetadataLoaded(true)
