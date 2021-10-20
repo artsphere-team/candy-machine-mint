@@ -5,6 +5,7 @@ import { ArtContent } from './../ArtContent';
 import { PublicKey } from '@solana/web3.js';
 import { Data } from '../../logic/utils/get-mints';
 import { useMeta } from '../../contexts/meta/meta';
+import './index.css';
 
 const { Meta } = Card;
 
@@ -75,9 +76,7 @@ export const ArtCard = (props: ArtCardProps) => {
   creators = art?.creators || creators || [];
   name = art?.name || name || ' ';
   image = art?.image || image || ''
-  // console.log("[2]", art, image)
 
-  //console.log("[2] METADATA", metadata)
 
   const card = (
     <Card
@@ -107,7 +106,7 @@ export const ArtCard = (props: ArtCardProps) => {
             height={height}
             width={width}
             data={data}
-            className={'art-card'}
+            className={'artwork-image'}
           />
         </>
       }
