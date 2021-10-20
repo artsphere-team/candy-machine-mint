@@ -1,6 +1,5 @@
 .art-card {
   width: 100%;
-  border-radius: 8px;
   margin-bottom: 25px;
 
 }
@@ -15,9 +14,8 @@
 }
 
 .ant-card-meta-title {
-  font-weight: 600;
-  padding: 24px 24px 0 24px;
-  min-height: 55px;
+  font-weight: 500;
+  padding: 10px 10px;
   text-align: center;
 }
 
