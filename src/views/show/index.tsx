@@ -10,15 +10,8 @@ import { Row } from "antd";
 import { useMeta } from "../../contexts/meta/meta";
 //import {fetchingData} from  "../../contexts/meta/meta"
 
-export enum ArtworkViewState {
-    Metaplex = '0',
-    Owned = '1',
-    Created = '2',
-}
-
-
 const Show = () => {
-    const {metadata, ownedMinerDwarfsMeta, isLoading} = useMeta()
+    const { metadata, ownedMinerDwarfsMeta, isLoading } = useMeta()
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata1, setmetadata1] = useState([] as any)
@@ -42,31 +35,29 @@ const Show = () => {
     //console.log("ISLOADING MAIN", isLoading, metadata, ownedMinerDwarfsMeta)
 
     const artworkGrid = (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column"
-    >
-      {!isLoading
-        //@ts-ignore
-        ? ownedMinerdwarfs.map((m, idx) => {
-            const id = m.info.mint;
-            //console.log("[1] SHOW", m.data, id, metadata)
-            return (
-                <ArtCard
-                  key={id}
-                  pubkey={id}
-                  image={m.data.image}
-                  preview={false}
-                  height={250}
-                  width={250}
-                  data={m.data}
-                />
-            );
-          })
-        : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
-    </Masonry>
-  );
+        <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+        >
+            {!isLoading 
+                //@ts-ignore
+                ? ownedMinerdwarfs.map((m, idx) => {
+                    const id = m.info.mint;
+                    //console.log("[1] SHOW", m.data, id, metadata)
+                    return (
+                        <ArtCard
+                            key={id}
+                            pubkey={id}
+                            image={m.data.image}
+                            preview={false}
+                            data={m.data}
+                        />
+                    );
+                })
+                : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
+        </Masonry>
+    );
 
 
     return (
@@ -96,11 +87,11 @@ const Show = () => {
                 <div className='showroom-section' >
 
                     {!wallet && <p>Not connected</p>}
-                    {isLoading && <p>Loading ... </p>}
+                    {wallet && isLoading && <p>Loading ... </p>}
                     {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length > 1 ? "s" : ""}!</p>}
                     <br />
-                    <Row style={{width: '100%'}}>
-                        {artworkGrid}
+                    <Row style={{ width: '90%', marginLeft: '5%' }}>
+                        {wallet && artworkGrid}
                     </Row>
                 </div>
             </header>
