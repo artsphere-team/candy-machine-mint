@@ -11,6 +11,7 @@ import {Data} from '../../logic/utils/get-mints'
 import {getMetadata} from '../../logic/utils/get-mints'
 import * as anchor from "@project-serum/anchor";
 import { useMeta } from '../../contexts/meta/meta';
+import './index.css';
 
 type MetadataFile = {
     uri: string;
@@ -143,15 +144,14 @@ const CachedImageContent = ({
     <Image
       src={cachedBlob}
       preview={preview}
-      style={{ maxWidth: '100%'}}
+      style={{ maxWidth: '100%',margin: 0, padding: 0}}
       wrapperClassName={className}
-      loading="lazy"
       wrapperStyle={{ ...style }}
       onLoad={e => {
         setLoaded(true);
       }}
-      placeholder={<ThreeDots />}
-      {...(loaded ? {} : { height: 200 })}
+      placeholder={<div style={{border: '3px solid orange'}}><ThreeDots /></div>}
+      {...(loaded ? {} : { height: 250 })}
     />
   );
 };
@@ -394,11 +394,11 @@ export const ArtContent = ({
   return (
     <div
       ref={ref as any}
-      /* style={{
+      style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      }} */
+      }}
     >
       {content}
     </div>

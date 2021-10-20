@@ -51,6 +51,7 @@ const Show = () => {
                             image={m.data.image}
                             preview={false}
                             data={m.data}
+                            height={300}
                         />
                     );
                 })
