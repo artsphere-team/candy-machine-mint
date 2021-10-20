@@ -6,7 +6,7 @@ import { shortenAddress } from "../../logic/candy-machine";
 import Masonry from 'react-masonry-css';
 import { CardLoader } from '../../components/Loader'
 import { ArtCard } from "../../components/ArtCard";
-import {  Row } from "antd";
+import { Row } from "antd";
 import { useMeta } from "../../contexts/meta/meta";
 //import {fetchingData} from  "../../contexts/meta/meta"
 
@@ -109,7 +109,7 @@ const Show = () => {
                     {isLoading && <p>Loading ... </p>}
                     {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length > 1 ? "s" : ""}!</p>}
                     <br />
-                    <Row>
+                    <Row style={{width: '100%'}}>
                         {artworkGrid}
                     </Row>
                 </div>

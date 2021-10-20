@@ -1,0 +1,37 @@
+.art-card {
+  width: 100%;
+  margin-bottom: 25px;
+
+}
+
+.ant-card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  text-align: left;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.ant-card-meta-title {
+  font-weight: 500;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+
+
+.ant-card-meta {
+  width: 100%;
+}
+
+.ant-image {
+  display: block;
+}
+
+.small {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+

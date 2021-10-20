@@ -5,6 +5,8 @@ import { getMints } from "../../logic/utils/get-mints";
 import { MetaContextState, MetaState } from "./types";
 import { AccountInfo as TokenAccountInfo} from '@solana/spl-token';
 
+var fetchingData = false
+
 export const getEmptyMetaState = (): MetaState => ({
     metadata: [],
     ownedMinerDwarfsMeta: [],
@@ -39,8 +41,6 @@ export function MetaProvider({ children = null as any }) {
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
   const [metadataLoaded, setMetadataLoaded] = useState(false);
   const [isLoading, setisLoading] = useState(true);
-
-  const [isLoading, setIsLoading] = useState(true);
   const [fetchedData, setfetchedData] = useState(false);
 
   const wallet = useAnchorWallet();

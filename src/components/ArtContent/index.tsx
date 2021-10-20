@@ -142,6 +142,7 @@ const CachedImageContent = ({
     <Image
       src={cachedBlob}
       preview={preview}
+      style={{ maxWidth: '100%'}}
       wrapperClassName={className}
       loading="lazy"
       wrapperStyle={{ ...style }}
