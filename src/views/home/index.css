@@ -91,7 +91,7 @@ header .designButton {
 
 header .showButton {
     position: absolute;
-    top: 675px;
+    top: 650px;
     left: 240px;
     z-index: 5;
     width: 300px;

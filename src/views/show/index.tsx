@@ -9,7 +9,8 @@ import { CardLoader } from '../../components/Loader'
 import { ArtCard } from "../../components/ArtCard";
 import { Col, Layout, Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import { useMeta } from "../../contexts/meta/meta";
+import { useMeta} from "../../contexts/meta/meta";
+
 
 export enum ArtworkViewState {
     Metaplex = '0',
@@ -18,8 +19,7 @@ export enum ArtworkViewState {
   }
 
 const Show = () => {
-    const {metadata} = useMeta()
-    const [isLoading, setisLoading] = useState(false)
+    const {metadata, isLoading} = useMeta()
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata1, setmetadata1] = useState([] as any)
@@ -45,13 +45,16 @@ const Show = () => {
     // }
 
         
-    if (metadata && metadata.length > 0 && !issuedownedMinerdwarfs) {
-        //console.log("INNER", metadata1)
-        setownedMinerdwarfs(metadata.filter((m: any) => m.data.name.includes("MinerDwarf")));
+    if (!isLoading && metadata && !issuedownedMinerdwarfs && metadata.length > 1) {
+        console.log("INNER", metadata)
+        setownedMinerdwarfs(metadata.filter((m: any) => m.data.category === "image"));
         setissuedownedMinerdwarfs(true)
     }
-    // if (metadata && metadata.length > 0)
-    //     console.log("[1] METADADATA", metadata)
+
+    console.log("ISLOADING MAIN", isLoading, metadata)
+
+    if (metadata && metadata.length > 0)
+        console.log("[1] METADADATA", metadata, ownedMinerdwarfs, metadata.filter((m: any) => m.data.category === "image"))
 
     
 

@@ -363,7 +363,7 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
 
     if (ownedTokenAccounts.length > 0) {
       while (metadata.length == 0) {
-          await new Promise(resolve => setTimeout(resolve, 500))
+          await new Promise(resolve => setTimeout(resolve, 1000))
       }
     }
 
@@ -371,56 +371,58 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
       metadata.map((m, idx) => {
           var _uri = m.data.uri || "";
           if (!m.data.alreadyQueried) {
-          if (_uri == "" || !_uri.includes("arweave.net"))
-            return undefined
+            if (_uri == "" || !_uri.includes("arweave.net")) {
+              console.log(`${idx} - NOT Getting ${m.data.name}`)
+              return undefined
+            }
 
-          fetch(_uri)
-              .then(async (_) => {
-              console.log(`${idx} - Getting ${m.data.name}`)
-              await new Promise(resolve => setTimeout(resolve, 500))
-              try {
-                  const data = await _.json();
+            fetch(_uri)
+                .then(async (_) => {
+                console.log(`${idx} - Getting ${m.data.name}`)
+                await new Promise(resolve => setTimeout(resolve, 1000))
+                try {
+                    const data = await _.json();
 
-                  if (data?.description) {
-                  m.data.description = data?.description;
-                  }
+                    if (data?.description) {
+                    m.data.description = data?.description;
+                    }
 
-                  if (data?.image) {
-                  m.data.image = data?.image;
-                  }
+                    if (data?.image) {
+                    m.data.image = data?.image;
+                    }
 
-                  if (data?.animation_url) {
-                  m.data.animation_url = data?.animation_url;
-                  }
+                    if (data?.animation_url) {
+                    m.data.animation_url = data?.animation_url;
+                    }
 
-                  if (data?.collection) {
-                  m.data.collection = data?.collection;
-                  }
+                    if (data?.collection) {
+                    m.data.collection = data?.collection;
+                    }
 
-                  if (data?.attributes) {
-                  m.data.attributes = data?.attributes;
-                  }
+                    if (data?.attributes) {
+                    m.data.attributes = data?.attributes;
+                    }
 
-                  if (data?.properties.category) {
-                  m.data.category = data?.properties.category;
-                  }
+                    if (data?.properties.category) {
+                    m.data.category = data?.properties.category;
+                    }
 
-                  if (data?.properties.files) {
-                  m.data.files = data?.properties.files;
-                  }
+                    if (data?.properties.files) {
+                    m.data.files = data?.properties.files;
+                    }
 
-                  m.data.alreadyQueried = true
+                    m.data.alreadyQueried = true
 
-                  return m
-              } catch (e) {
-                  console.log("JSON DATA isMetadataPartOfStore ERROR:", e, _);
-                  return undefined;
-              }
-              })
-              .catch((e) => {
-              console.log("JSON DATA isMetadataPartOfStore ERROR 2:", e);
-              return undefined;
-              });
+                    return m
+                } catch (e) {
+                    console.log("JSON DATA isMetadataPartOfStore ERROR:", e, _);
+                    return undefined;
+                }
+                })
+                .catch((e) => {
+                console.log("JSON DATA isMetadataPartOfStore ERROR 2:", e);
+                return undefined;
+                });
       }}
       )
     }

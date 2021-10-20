@@ -20,9 +20,10 @@ export interface TokenAccount {
 
 const MetaContext = React.createContext<MetaContextState>({
     ...getEmptyMetaState(),
-    isLoading: false,
+    isLoading: true,
+    metadataLoaded: false,
     // @ts-ignore
-    update: () => [AuctionData, BidderMetadata, BidderPot],
+    update: () => [],
   });
 
   
@@ -34,12 +35,11 @@ export const useMeta = () => {
 export function MetaProvider({ children = null as any }) {
   const connection = useConnection();
 
-  var { metadata, isLoading} = useMeta();
+  var { metadata} = useMeta();
 
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
-  const [page, setPage] = useState(0);
   const [metadataLoaded, setMetadataLoaded] = useState(false);
-  const [lastLength, setLastLength] = useState(0);
+  const [isLoading, setisLoading] = useState(true);
 
   const wallet = useAnchorWallet();
 
@@ -48,15 +48,19 @@ export function MetaProvider({ children = null as any }) {
   //console.log("META")
 
   async function update() {
-      //console.log("UPDATE")
+      
       if (wallet && !fetchingData) {
+        console.log("UPDATE", fetchingData)
         fetchingData = true
         var metadata = await getMints(wallet.publicKey.toBase58(), url);
+
+        setMetadataLoaded(true)
+        setisLoading(false)
+
         setState((current: any) => ({
           ...current,
           metadata}))
-        //console.log("nextstate", metadata, state)
-        setMetadataLoaded(true)
+        console.log("nextstate", metadata, isLoading)
         //console.log("STATE", nextState)
       }
       
