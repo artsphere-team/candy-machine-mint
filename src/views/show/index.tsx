@@ -19,7 +19,7 @@ export enum ArtworkViewState {
   }
 
 const Show = () => {
-    const {metadata, isLoading} = useMeta()
+    const {metadata, ownedMinerDwarfsMeta, isLoading} = useMeta()
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata1, setmetadata1] = useState([] as any)
@@ -45,20 +45,15 @@ const Show = () => {
     // }
 
         
-    if (!isLoading && metadata && !issuedownedMinerdwarfs && metadata.length > 1) {
+    if (!isLoading && ownedMinerDwarfsMeta && !issuedownedMinerdwarfs) {
         console.log("INNER", metadata)
-        setownedMinerdwarfs(metadata.filter((m: any) => m.data.category === "image"));
+        setownedMinerdwarfs(ownedMinerDwarfsMeta);
         setissuedownedMinerdwarfs(true)
     }
 
-    console.log("ISLOADING MAIN", isLoading, metadata)
+    console.log("ISLOADING MAIN", isLoading, metadata, ownedMinerDwarfsMeta)
 
-    if (metadata && metadata.length > 0)
-        console.log("[1] METADADATA", metadata, ownedMinerdwarfs, metadata.filter((m: any) => m.data.category === "image"))
-
-    
-
-  const artworkGrid = (
+    const artworkGrid = (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="my-masonry-grid"

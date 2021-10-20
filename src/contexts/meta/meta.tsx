@@ -9,6 +9,7 @@ var fetchingData = false
 
 export const getEmptyMetaState = (): MetaState => ({
     metadata: [],
+    ownedMinerDwarfsMeta: [],
     fetchInProgress: false
   });
 
@@ -35,7 +36,7 @@ export const useMeta = () => {
 export function MetaProvider({ children = null as any }) {
   const connection = useConnection();
 
-  var { metadata} = useMeta();
+  var { metadata, ownedMinerDwarfsMeta} = useMeta();
 
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
   const [metadataLoaded, setMetadataLoaded] = useState(false);
@@ -53,14 +54,14 @@ export function MetaProvider({ children = null as any }) {
         console.log("UPDATE", fetchingData)
         fetchingData = true
         var metadata = await getMints(wallet.publicKey.toBase58(), url);
-
+        var ownedMinerDwarfsMeta = metadata.filter((m) => m.data.name && m.data.name.includes("Miner"))
         setMetadataLoaded(true)
         setisLoading(false)
 
         setState((current: any) => ({
           ...current,
-          metadata}))
-        console.log("nextstate", metadata, isLoading)
+          metadata,
+          ownedMinerDwarfsMeta}))
         //console.log("STATE", nextState)
       }
       

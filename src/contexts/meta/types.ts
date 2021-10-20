@@ -14,6 +14,7 @@ export interface ParsedAccountBase {
 
 export interface MetaState {
     metadata: ParsedAccount<Metadata>[];
+    ownedMinerDwarfsMeta: ParsedAccount<Metadata>[];
     fetchInProgress: boolean;
   }
 

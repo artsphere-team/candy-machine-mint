@@ -225,7 +225,7 @@ header .clouds img:nth-child(3) {
 
 @keyframes cloudAnimation {
     0% {
-        transform: translate(-700px, 0);
+        transform: translate(-100vw, 0);
     }
     100% {
         transform: translate(100vw, 0);

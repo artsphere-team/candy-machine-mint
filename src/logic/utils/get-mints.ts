@@ -375,7 +375,6 @@ export const getMints = async (creatorId: string, url: string, tempCache?: MetaS
               console.log(`${idx} - NOT Getting ${m.data.name}`)
               return undefined
             }
-
             fetch(_uri)
                 .then(async (_) => {
                 console.log(`${idx} - Getting ${m.data.name}`)
