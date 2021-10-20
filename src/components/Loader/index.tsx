@@ -19,18 +19,19 @@ export const CardLoader = () => (
 );
 
 export const ThreeDots = () => (
-  <ContentLoader
-    viewBox="0 0 212 200"
-    height={200}
-    width={212}
+ <ContentLoader
+    width={223}
+    height={300}
+    viewBox="0 0 200 400"
     backgroundColor="transparent"
     style={{
-      width: '100%',
+      border: '2px solid red',
       margin: 'auto',
+      width: '100%',
     }}
   >
-    <circle cx="86" cy="100" r="8" />
-    <circle cx="106" cy="100" r="8" />
-    <circle cx="126" cy="100" r="8" />
+    <circle cx="86" cy="200" r="8" />
+    <circle cx="106" cy="200" r="8" />
+    <circle cx="126" cy="200" r="8" />
   </ContentLoader>
 );

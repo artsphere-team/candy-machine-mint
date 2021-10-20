@@ -85,19 +85,6 @@ export const ArtCard = (props: ArtCardProps) => {
       style={{ background: 'white'}}
       cover={
         <>
-          {close && (
-            <Button
-              className="card-close-button"
-              shape="circle"
-              onClick={e => {
-                e.stopPropagation();
-                e.preventDefault();
-                close && close();
-              }}
-            >
-              X
-            </Button>
-          )}
           <ArtContent
             pubkey={pubkey}
             image={image}
@@ -107,31 +94,16 @@ export const ArtCard = (props: ArtCardProps) => {
             height={height}
             width={width}
             data={data}
-            className={'artwork-image'}
           />
         </>
       }
       {...rest}
     >
       <Meta
-        title={`${name}`}
-        description={
-          <>
-            {/* <MetaAvatar creators={creators} size={32} /> */}
-            {/* {art.type === ArtType.Master && (
-              <>
-                <br />
-                {!endAuctionAt && (
-                  <span style={{ padding: '24px' }}>
-                    {(art.maxSupply || 0) - (art.supply || 0)}/
-                    {art.maxSupply || 0} prints remaining
-                  </span>
-                )}
-              </>
-            )} */}
-            {/* <div className="edition-badge">{badge}</div> */}
-          </>
-        }
+        title={<div style={{
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+        }}>{name}</div>}
       />
     </Card>
   );

@@ -1,0 +1,8 @@
+.ant-image {
+    display: block;
+}
+
+.ant-card-cover {
+    position: relative;
+    overflow: hidden;
+}

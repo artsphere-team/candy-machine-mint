@@ -22,7 +22,6 @@ code {
 }
 
 .my-masonry-grid_column {
-  border: 1px solid yellow;
   padding-left: 16px; /* gutter size */
   background-clip: padding-box;
 }
