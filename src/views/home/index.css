@@ -525,25 +525,25 @@ footer .footerBlock {
         top: calc(240px + 10vw);
     }
     header .mintButton {
-        left: 40%;
+        left: 30%;
         transform: translateX(-50%);
         top: 40vh;
-        width: 25vw;
+        width: 40vw;
         height: 10vh;
     }
 
     header .designButton {
-        left: calc(40% );
+        left: calc(30% );
         transform: translateX(-50%);
         top: 52vh;
-        width: 25vw;
+        width: 40vw;
         height: 10vh;
     }
     header .showButton {
-        left: 40%;
+        left: 30%;
         transform: translateX(-50%);
         top: 64vh;
-        width: 25vw;
+        width: 40vw;
         height: 10vh;
     }
 
