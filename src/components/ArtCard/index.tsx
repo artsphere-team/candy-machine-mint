@@ -107,6 +107,7 @@ export const ArtCard = (props: ArtCardProps) => {
             height={height}
             width={width}
             data={data}
+            className={'art-card'}
           />
         </>
       }
