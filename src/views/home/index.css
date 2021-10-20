@@ -74,27 +74,27 @@ header h2 {
 
 header .mintButton {
     position: absolute;
-    top: 350px;
-    left: 240px;
+    top: 35vh;
+    left: 15vw;
     z-index: 5;
-    width: 300px;
+    width: 15vw;
 
 }
 
 header .designButton {
     position: absolute;
-    top: 475px;
-    left: 240px;
+    top: 50vh;
+    left: 15vw;
     z-index: 5;
-    width: 300px;
+    width: 15vw;
 }
 
 header .showButton {
     position: absolute;
-    top: 650px;
-    left: 240px;
+    top: 65vh;
+    left: 15vw;
     z-index: 5;
-    width: 300px;
+    width: 15vw;
 }
 
 header .rarityToolButton {
