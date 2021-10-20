@@ -16,12 +16,19 @@ code {
 
 
 .my-masonry-grid {
-  
-  
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: -16px;
 }
 
 .my-masonry-grid_column {
-  border: 1px solid yellow
+  border: 1px solid yellow;
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
 }
 
 .showroom-section {
