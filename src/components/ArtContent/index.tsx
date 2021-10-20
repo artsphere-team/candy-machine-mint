@@ -138,6 +138,8 @@ const CachedImageContent = ({
   const [loaded, setLoaded] = useState<boolean>(false);
   const { cachedBlob } = useCachedImage(uri || '');
 
+  console.log("uri", uri)
+
   return (
     <Image
       src={cachedBlob}
@@ -313,13 +315,18 @@ export const ArtContent = ({
   artView?: boolean;
   data:Data
 }) => {
-  var { metadata} = useMeta();
+  var { metadata, isLoading} = useMeta();
   const id = pubkeyToString(pubkey);
   var { ref} = useInView();
   
   var metadata_uri = data.image
-  if (metadata)
-    metadata_uri = metadata.filter(m => pubkeyToString(m.info.mint) == id)[0].data.image
+  if (!isLoading){
+    var met_img = metadata.filter(m => pubkeyToString(m.info.mint) == id)[0]
+
+    if (met_img?.data) {
+      metadata_uri = met_img.data.image
+    }
+  }
 
   //console.log("[3]", uri, data, image, "metadata_uri", metadata_uri)//, ownedMinerdwarf)
 
