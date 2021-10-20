@@ -7,6 +7,7 @@ import { AccountInfo as TokenAccountInfo} from '@solana/spl-token';
 
 export const getEmptyMetaState = (): MetaState => ({
     metadata: [],
+    ownedMinerDwarfsMeta: [],
     fetchInProgress: false
   });
 
@@ -18,10 +19,10 @@ export interface TokenAccount {
 
 const MetaContext = React.createContext<MetaContextState>({
     ...getEmptyMetaState(),
-    isLoading: false,
-    fetchedData: false,
+    isLoading: true,
+    metadataLoaded: false,
     // @ts-ignore
-    update: () => [AuctionData, BidderMetadata, BidderPot],
+    update: () => [],
   });
 
   
@@ -33,12 +34,11 @@ export const useMeta = () => {
 export function MetaProvider({ children = null as any }) {
   const connection = useConnection();
 
-  var { metadata} = useMeta();
+  var { metadata, ownedMinerDwarfsMeta} = useMeta();
 
   var [state, setState] = useState([]as any)//<MetaState>(getEmptyMetaState());
-  const [page, setPage] = useState(0);
   const [metadataLoaded, setMetadataLoaded] = useState(false);
-  const [lastLength, setLastLength] = useState(0);
+  const [isLoading, setisLoading] = useState(true);
 
   const [isLoading, setIsLoading] = useState(true);
   const [fetchedData, setfetchedData] = useState(false);
@@ -50,16 +50,19 @@ export function MetaProvider({ children = null as any }) {
   //console.log("META")
 
   async function update() {
-      //console.log("UPDATE")
-      if (wallet && !fetchedData) {
-        setfetchedData(true)
+      
+      if (wallet && !fetchingData) {
+        console.log("UPDATE", fetchingData)
+        fetchingData = true
         var metadata = await getMints(wallet.publicKey.toBase58(), url);
+        var ownedMinerDwarfsMeta = metadata.filter((m) => m.data.name && m.data.name.includes("Miner"))
+        setMetadataLoaded(true)
+        setisLoading(false)
+
         setState((current: any) => ({
           ...current,
-          metadata}))
-        //console.log("nextstate", metadata, state)
-        setMetadataLoaded(true)
-        setIsLoading(false)
+          metadata,
+          ownedMinerDwarfsMeta}))
         //console.log("STATE", nextState)
       }
       

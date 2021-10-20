@@ -14,11 +14,12 @@ export interface ParsedAccountBase {
 
 export interface MetaState {
     metadata: ParsedAccount<Metadata>[];
+    ownedMinerDwarfsMeta: ParsedAccount<Metadata>[];
     fetchInProgress: boolean;
   }
 
   export interface MetaContextState extends MetaState {
     isLoading: boolean;
-    fetchedData: boolean;
+    metadataLoaded: boolean;
     pullAllMetadata: () => void;
   }

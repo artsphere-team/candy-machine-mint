@@ -91,7 +91,7 @@ header .designButton {
 
 header .showButton {
     position: absolute;
-    top: 675px;
+    top: 650px;
     left: 240px;
     z-index: 5;
     width: 300px;
@@ -225,7 +225,7 @@ header .clouds img:nth-child(3) {
 
 @keyframes cloudAnimation {
     0% {
-        transform: translate(-700px, 0);
+        transform: translate(-100vw, 0);
     }
     100% {
         transform: translate(100vw, 0);

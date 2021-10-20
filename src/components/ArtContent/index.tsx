@@ -387,11 +387,11 @@ export const ArtContent = ({
   return (
     <div
       ref={ref as any}
-      style={{
+      /* style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      }}
+      }} */
     >
       {content}
     </div>

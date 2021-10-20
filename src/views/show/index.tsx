@@ -3,12 +3,10 @@ import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import { shortenAddress } from "../../logic/candy-machine";
-import { getMints } from "../../logic/utils/get-mints"
 import Masonry from 'react-masonry-css';
 import { CardLoader } from '../../components/Loader'
 import { ArtCard } from "../../components/ArtCard";
-import { Col, Layout, Row } from "antd";
-import { Content } from "antd/lib/layout/layout";
+import {  Row } from "antd";
 import { useMeta } from "../../contexts/meta/meta";
 //import {fetchingData} from  "../../contexts/meta/meta"
 
@@ -16,10 +14,11 @@ export enum ArtworkViewState {
     Metaplex = '0',
     Owned = '1',
     Created = '2',
-  }
+}
+
 
 const Show = () => {
-    const {metadata, isLoading} = useMeta()
+    const {metadata, ownedMinerDwarfsMeta, isLoading} = useMeta()
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata1, setmetadata1] = useState([] as any)
@@ -33,7 +32,6 @@ const Show = () => {
 
     const wallet = useAnchorWallet();
 
-
     // let url = "https://api.mainnet-beta.solana.com"
 
     // if (wallet && !issuedNftLoading) {
@@ -41,19 +39,19 @@ const Show = () => {
     //     setissuedNftLoading(true)
     //     setisLoading(true)
     //     getMints(wallet.publicKey.toBase58(), url).then((items) => {setmetadata1(items); setisLoading(false);})
-        
+
     // }
 
         
-    if (metadata && metadata.length > 0 && !issuedownedMinerdwarfs) {
-        //console.log("INNER", metadata1)
-        setownedMinerdwarfs(metadata.filter((m: any) => m.data.name.includes("MinerDwarf")));
+    if (!isLoading && ownedMinerDwarfsMeta && !issuedownedMinerdwarfs) {
+        console.log("INNER", metadata)
+        setownedMinerdwarfs(ownedMinerDwarfsMeta);
         setissuedownedMinerdwarfs(true)
     }
 
-    
+    console.log("ISLOADING MAIN", isLoading, metadata, ownedMinerDwarfsMeta)
 
-  const artworkGrid = (
+    const artworkGrid = (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="my-masonry-grid"
@@ -84,45 +82,37 @@ const Show = () => {
     return (
         <div>
             <header>
-            <div className="headerArt">
-            
-
-            <div className="clouds">
-            <img src="img/Top/Clouds/cloud1.png" alt="cloud" />
-            <img src="img/Top/Clouds/cloud2.png" alt="cloud" />
-            <img src="img/Top/Clouds/cloud3.png" alt="cloud" />
-            </div>
-            </div>
-            <h2>MINERDWARFS<br />SHOWROOM</h2>
-
-            {!wallet ?(
-                <div style={{ position: 'absolute', top: 20, right: 10 }}>
-                <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
+                <div className="headerArt">
+                    <div className="clouds">
+                        <img src="img/Top/Clouds/cloud1.png" alt="cloud" />
+                        <img src="img/Top/Clouds/cloud2.png" alt="cloud" />
+                        <img src="img/Top/Clouds/cloud3.png" alt="cloud" />
+                    </div>
                 </div>
-            ) : undefined}
+                <h2 style={{ top: 100 }}>MINERDWARFS<br />SHOWROOM</h2>
 
-            <div className='walletText' >
-                {wallet && (
-                    <p style={{ position: 'absolute', top: 20, right: 10 }}>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
+                {!wallet ? (
+                    <div style={{ position: 'absolute', top: 20, right: 10 }}>
+                        <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
+                    </div>
+                ) : undefined}
+
+                <div className='walletText' >
+                    {wallet && (
+                        <p style={{ position: 'absolute', top: 20, right: 10 }}>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
                     )}
-            </div>
+                </div>
 
-            <div className='mintSection' >
-            
-                {!wallet && <p>Not connected</p>}
-                {isLoading && <p>Loading ... </p>}
-                {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length>1?"s":""}!</p>}
+                <div className='showroom-section' >
 
-                <Layout style={{ margin: 0, marginTop: 30 }}>
-                    <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
-                        <Col style={{ width: '100%', marginTop: 10 }}>
-                            <Row>
-                                {artworkGrid}
-                            </Row>
-                        </Col>
-                    </Content>
-                </Layout>
-            </div>
+                    {!wallet && <p>Not connected</p>}
+                    {isLoading && <p>Loading ... </p>}
+                    {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length > 1 ? "s" : ""}!</p>}
+                    <br />
+                    <Row>
+                        {artworkGrid}
+                    </Row>
+                </div>
             </header>
 
             <Link to={`/`}>
