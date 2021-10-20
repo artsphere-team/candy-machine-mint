@@ -32,24 +32,14 @@ const Show = () => {
 
     const wallet = useAnchorWallet();
 
-    // let url = "https://api.mainnet-beta.solana.com"
-
-    // if (wallet && !issuedNftLoading) {
-    //     console.log("IssuedNFTLoading")
-    //     setissuedNftLoading(true)
-    //     setisLoading(true)
-    //     getMints(wallet.publicKey.toBase58(), url).then((items) => {setmetadata1(items); setisLoading(false);})
-
-    // }
-
         
     if (!isLoading && ownedMinerDwarfsMeta && !issuedownedMinerdwarfs) {
-        console.log("INNER", metadata)
+        //console.log("INNER", metadata)
         setownedMinerdwarfs(ownedMinerDwarfsMeta);
         setissuedownedMinerdwarfs(true)
     }
 
-    console.log("ISLOADING MAIN", isLoading, metadata, ownedMinerDwarfsMeta)
+    //console.log("ISLOADING MAIN", isLoading, metadata, ownedMinerDwarfsMeta)
 
     const artworkGrid = (
     <Masonry
