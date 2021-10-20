@@ -15,6 +15,7 @@ export enum ArtworkViewState {
     Created = '2',
 }
 
+
 const Show = () => {
     const {metadata, ownedMinerDwarfsMeta, isLoading} = useMeta()
     const [issuedNftLoading, setissuedNftLoading] = useState(false)
