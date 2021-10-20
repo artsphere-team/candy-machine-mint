@@ -525,17 +525,30 @@ footer .footerBlock {
         top: calc(240px + 10vw);
     }
     header .mintButton {
-        left: 50%;
+        left: 40%;
         transform: translateX(-50%);
-        top: 350px;
-        width: 200px;
+        top: 40vh;
+        width: 25vw;
+        height: 10vh;
     }
 
     header .designButton {
-        left: calc(50% );
-        transform: translateX(-47%);
-        top: 450px;
-        width: 200px;
+        left: calc(40% );
+        transform: translateX(-50%);
+        top: 52vh;
+        width: 25vw;
+        height: 10vh;
+    }
+    header .showButton {
+        left: 40%;
+        transform: translateX(-50%);
+        top: 64vh;
+        width: 25vw;
+        height: 10vh;
+    }
+
+    header .dwarfWithText .text {
+        display: none;
     }
 
     header .rarityToolButton {

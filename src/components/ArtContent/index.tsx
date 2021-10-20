@@ -139,7 +139,7 @@ const CachedImageContent = ({
   const [loaded, setLoaded] = useState<boolean>(false);
   const { cachedBlob } = useCachedImage(uri || '');
 
-  console.log("uri", uri)
+  //console.log("uri", uri)
   return (
     <Image
       src={cachedBlob}

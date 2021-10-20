@@ -83,7 +83,7 @@ export const ArtCard = (props: ArtCardProps) => {
 
     if (met_img?.data) {
       image = met_img.data.image
-      console.log("pubkey", isLoading, met_img, pubkey, "image", met_img.data.image, image)
+      //console.log("pubkey", isLoading, met_img, pubkey, "image", met_img.data.image, image)
     }
   }
 
