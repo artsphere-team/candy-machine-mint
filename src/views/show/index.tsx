@@ -49,15 +49,15 @@ const Show = () => {
                 ? ownedMinerdwarfs.map((m, idx) => {
                     const id = m.info.mint;
                     return (
-                        <Link
-                            to={`#`}
-                            style={{ textDecoration: 'none', color: 'black' }}
-                            onClick={() => {
-                                setShowArtworkModal(true);
-                                setArtworkIdModal(id);
-                                console.log("Modal visible:", showArtworkModal, id)
-                            }}
-                        >
+                        // <Link
+                        //     to={`#`}
+                        //     style={{ textDecoration: 'none', color: 'black' }}
+                        //     onClick={() => {
+                        //         setShowArtworkModal(true);
+                        //         setArtworkIdModal(id);
+                        //         console.log("Modal visible:", showArtworkModal, id)
+                        //     }}
+                        // >
                             <ArtCard
                                 key={id}
                                 pubkey={id}
@@ -66,7 +66,7 @@ const Show = () => {
                                 data={m.data}
                                 height={300}
                             />
-                        </Link>
+                        // </Link>
                     );
                 })
                 : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
@@ -111,7 +111,7 @@ const Show = () => {
                     </div>
                 </div>
             </header>
-            <ArtModal
+            {/* <ArtModal
                 artworkId={artworkIdModal}
                 artworkIdList={arworkidList}
                 visible={showArtworkModal}
@@ -129,7 +129,7 @@ const Show = () => {
                     setArtworkIdModal("");
                     setShowArtworkModal(false);
                 }}
-            />
+            /> */}
 
             <Link to={`/`}>
                 <div className='backArrow'>
