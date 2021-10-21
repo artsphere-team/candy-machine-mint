@@ -8,6 +8,8 @@ import { CardLoader } from '../../components/Loader'
 import { ArtCard } from "../../components/ArtCard";
 import { Row } from "antd";
 import { useMeta } from "../../contexts/meta/meta";
+import { ArtModal } from "../../components/ArtModal";
+import { PublicKey } from "@solana/web3.js";
 //import {fetchingData} from  "../../contexts/meta/meta"
 
 const Show = () => {
@@ -16,6 +18,11 @@ const Show = () => {
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [metadata1, setmetadata1] = useState([] as any)
     const [ownedMinerdwarfs, setownedMinerdwarfs] = useState([] as any)
+    
+    const [showArtworkModal, setShowArtworkModal] = useState<boolean>(false);
+    const [artworkIdModal, setArtworkIdModal] = useState<string>("");
+    const [arworkidList, setartworkIdList] = useState([] as any)
+
     const breakpointColumnsObj = {
         default: 4,
         1100: 3,
@@ -29,6 +36,7 @@ const Show = () => {
     if (!isLoading && ownedMinerDwarfsMeta && !issuedownedMinerdwarfs) {
         //console.log("INNER", metadata)
         setownedMinerdwarfs(ownedMinerDwarfsMeta);
+        setartworkIdList(ownedMinerDwarfsMeta.map((m) => pubkeyToString(m.info.mint)))
         setissuedownedMinerdwarfs(true)
     }
 
@@ -45,14 +53,22 @@ const Show = () => {
                 ? ownedMinerdwarfs.map((m, idx) => {
                     const id = m.info.mint;
                     return (
-                        <ArtCard
-                            key={id}
-                            pubkey={id}
-                            image={m.data.image}
-                            preview={false}
-                            data={m.data}
-                            height={300}
-                        />
+                        <Link
+                          to={`#`}
+                          onClick={() => {
+                            setShowArtworkModal(true);
+                            setArtworkIdModal(id);
+                          }}
+                        >
+                            <ArtCard
+                                key={id}
+                                pubkey={id}
+                                image={m.data.image}
+                                preview={false}
+                                data={m.data}
+                                height={300}
+                            />
+                        </Link>
                     );
                 })
                 : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
@@ -90,9 +106,29 @@ const Show = () => {
                     {wallet && isLoading && <p>Loading ... </p>}
                     {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length > 1 ? "s" : ""}!</p>}
                     <br />
-                    <Row style={{ width: '90%', marginLeft: '5%' }}>
-                        {wallet && artworkGrid}
-                    </Row>
+                    <div className="card-container">
+                        <Row style={{ width: '90%', marginLeft: '5%' }}>
+                            {wallet && artworkGrid}
+                            <ArtModal
+                                artworkId={artworkIdModal}
+                                artworkIdList={arworkidList}
+                                visible={showArtworkModal}
+                                key={arworkidList.indexOf(artworkIdModal)}
+                                onSwipe={(direction: string) => {
+                                var currentIdx = arworkidList.indexOf(artworkIdModal);
+                                setArtworkIdModal(
+                                    direction == "right"
+                                    ? arworkidList[currentIdx + 1]
+                                    : arworkidList[currentIdx - 1]
+                                );
+                                }}
+                                onCancel={() => {
+                                    setArtworkIdModal("");
+                                    setShowArtworkModal(false);
+                                }}
+                            />
+                        </Row>
+                    </div>
                 </div>
             </header>
 
@@ -104,5 +140,10 @@ const Show = () => {
         </div>
     )
 }
+
+
+const pubkeyToString = (key: PublicKey | null | string = '') => {
+    return typeof key === 'string' ? key : key?.toBase58() || '';
+  };
 
 export default Show
