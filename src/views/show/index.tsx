@@ -10,13 +10,12 @@ import { Row } from "antd";
 import { useMeta } from "../../contexts/meta/meta";
 import { ArtModal } from "../../components/ArtModal";
 import { PublicKey } from "@solana/web3.js";
+import './index.less'
 //import {fetchingData} from  "../../contexts/meta/meta"
 
 const Show = () => {
     const { metadata, ownedMinerDwarfsMeta, isLoading } = useMeta()
-    const [issuedNftLoading, setissuedNftLoading] = useState(false)
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
-    const [metadata1, setmetadata1] = useState([] as any)
     const [ownedMinerdwarfs, setownedMinerdwarfs] = useState([] as any)
     
     const [showArtworkModal, setShowArtworkModal] = useState<boolean>(false);
@@ -58,6 +57,7 @@ const Show = () => {
                           onClick={() => {
                             setShowArtworkModal(true);
                             setArtworkIdModal(id);
+                            console.log("Modal visible:", showArtworkModal, id)
                           }}
                         >
                             <ArtCard
@@ -115,14 +115,15 @@ const Show = () => {
                                 visible={showArtworkModal}
                                 key={arworkidList.indexOf(artworkIdModal)}
                                 onSwipe={(direction: string) => {
-                                var currentIdx = arworkidList.indexOf(artworkIdModal);
-                                setArtworkIdModal(
-                                    direction == "right"
-                                    ? arworkidList[currentIdx + 1]
-                                    : arworkidList[currentIdx - 1]
-                                );
+                                    var currentIdx = arworkidList.indexOf(artworkIdModal);
+                                    setArtworkIdModal(
+                                        direction == "right"
+                                        ? arworkidList[currentIdx + 1]
+                                        : arworkidList[currentIdx - 1]
+                                    );
                                 }}
                                 onCancel={() => {
+                                    console.log("MODAL CANCELLED")
                                     setArtworkIdModal("");
                                     setShowArtworkModal(false);
                                 }}

@@ -25,6 +25,8 @@ import Mint from "./views/mint";
 import Show from "./views/show"
 import { MetaProvider } from "./contexts/meta/meta";
 
+import './App.less'
+
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS!
 );

@@ -5,6 +5,7 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { PublicKey } from "@solana/web3.js";
 import { useInView } from "react-intersection-observer";
 import { useMeta } from "../../contexts/meta/meta";
+import './index.less'
 
 const { Content } = Layout;
 
@@ -32,7 +33,7 @@ export const ArtModal = (props: any) => {
             setissueModalData(true)
             setmodalData(met_img)
         }
-        console.log("pubkey", isLoading, met_img, id, "image", met_img.data.image, image, met_img)
+        console.log("pubkey", isLoading, met_img, id, "image", met_img.data.image, image, met_img, rest)
         }
     }
 
@@ -49,23 +50,19 @@ export const ArtModal = (props: any) => {
         width={"100%"}
         {...rest}
       >
-        <Row justify="center" className="artwork-modal-row">
+      <Row justify="center" className="artwork-modal-row">
             <LeftOutlined
-            className="artwork-modal-arrow"
-            onClick={() => onSwipe("left")}
+                className="artwork-modal-arrow"
+                onClick={() => onSwipe("left")}
             />
                 <Col className="artwork-modal-content">
-                    <Row justify="space-around" ref={ref}>
-                        <div>
-                            Hello!
-                        </div>
-                    </Row>
+                    HELLO
                 </Col>
             <RightOutlined
-            className="artwork-modal-arrow"
-            onClick={() => onSwipe("right")}
+                className="artwork-modal-arrow"
+                onClick={() => onSwipe("right")}
             />
         </Row>
-      </Modal>
+    </Modal>
     );
 }
