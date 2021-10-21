@@ -124,7 +124,6 @@ const Show = () => {
                             : arworkidList[currentIdx - 1]
                     );
                 }}
-                style={{border: '3px solid red', position: 'absolute', top: 0, left: 0}}
                 onCancel={() => {
                     console.log("MODAL CANCELLED")
                     setArtworkIdModal("");

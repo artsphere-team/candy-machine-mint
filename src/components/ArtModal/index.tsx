@@ -44,10 +44,10 @@ export const ArtModal = (props: any) => {
         footer={null}
         afterClose={() => null}
         destroyOnClose={true}
-        bodyStyle={{ padding: "0", margin: "0" }}
+        bodyStyle={{ padding: "10", margin: "10"}}
         centered
-        closable={false}
-        width={"100%"}
+        closable={true}
+        maskClosable = {true}
         {...rest}
       >
       <Row justify="center" className="artwork-modal-row">

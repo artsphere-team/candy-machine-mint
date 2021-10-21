@@ -27,7 +27,7 @@ export const ThreeDots = () => (
     style={{
       border: '2px solid red',
       margin: 'auto',
-      width: '100%',
+      width: '50vw',
     }}
   >
     <circle cx="86" cy="200" r="8" />

@@ -156,3 +156,47 @@ code {
   background: black;
 }
 
+.artwork-modal-content {
+  background-color: white;
+  height: 50vh;
+  width: calc(100% - 50px - 2rem);
+  align-self: center ;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 3px solid green;
+  z-index: 999 !important;
+}
+
+.artwork-modal{
+  height: 50vh;  
+  width: 60vw !important;  
+  top: 20vh !important;
+  left: 20vw !important;
+  background-color: transparent;
+  padding: 0;
+  z-index: 999 !important;
+  border: 3px solid red;
+  position:absolute !important;
+}
+
+
+.artwork-modal-arrow {
+  position: flex;
+  margin: auto;
+  font-size: 1.0rem;
+  color: black;
+  padding: 5px;
+  z-index: 999 !important;
+  border: 3px solid blue;
+}
+
+.artwork-modal-row{
+  background-color: transparent;
+  float: center;
+  overflow-x: hidden;
+  z-index: 999 !important;
+  border: 3px solid yellow;
+  @media (min-width: 1000px){
+      width: 80vw;
+  }
+}
