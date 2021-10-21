@@ -1,0 +1,441 @@
+{      
+   "Background": {
+     "Black": 1
+     , "Blue": 5
+     , "Brown": 4
+     , "Darkblue": 5
+     , "Gold": 2
+     , "Green": 5
+     , "Pink": 5
+     , "Purple": 4
+     , "Red": 4
+     , "Turquoise": 3
+     , "White": 1
+    }
+   ,"Shadow": {
+     "Dark": 99
+    }
+   ,"Eyes": {
+     "Fury Red": 1
+     , "Golden": 2
+     , "Ice Glaze": 1
+     , "Lightning": 2
+     , "Normal Anon": 8
+    }
+   ,"Chest Armor": {
+     "Ceremonious Knight Robe": 80
+     , "Festive Knight Robe": 80
+     , "Light Knight Robe": 40
+     , "Marine Knight Robe": 80
+     , "Normal Knight Robe": 80
+     , "Religious Knight Robe": 80
+     , "Royal Knight Robe": 20
+     , "Used Knight Robe": 80
+     , "Worn Knight Robe": 80
+     , "Bloody Robe": 80
+     , "Festive Robe": 80
+     , "Marine Robe": 80
+     , "Normal Robe": 20
+     , "Priest Robe": 8
+     , "Simple Robe": 8
+     , "Stained Robe": 80
+     , "Sunny Robe": 80
+     , "Basic Tight Robes": 80
+     , "Festive Tight Robes": 80
+     , "Formal Tight Robes": 40
+     , "Marine Tight Robes": 60
+     , "Priest Tight Robes": 40
+     , "Religious Tight Robes": 80
+     , "Simple Black Robe": 60
+     , "Stained Tight Robes": 40
+     , "Sunny Tight Robes": 80
+     , "Classic Shaman Robe": 8
+     , "Festive Shaman Robe": 60
+     , "Marine Shaman Robe": 40
+     , "Stained Shaman Robe": 60
+     , "Sunny Shaman Robe": 60
+     , "Used Shaman Robe": 40
+     , "Bloody Hauberk": 80
+     , "Blue Hauberk": 80
+     , "Decorative Hauberk": 80
+     , "Rusty Hauberk": 80
+     , "Used Hauberk": 100
+     , "Blood Soaked Breastplate": 80
+     , "Colonel Blue Breastplate": 80
+     , "Decorative Breastplate": 80
+     , "Rusty Breastplate": 80
+     , "Silver Breastplate": 80
+     , "Used Breastplate": 100
+     , "Blood Soaked Plate": 80
+     , "King Plate": 20
+     , "Lightning Plate": 80
+     , "Pacifist Plate": 20
+     , "Rusty Plate": 80
+     , "Soldier Plate": 80
+     , "Bluegold Garb": 80
+     , "Bluered Garb": 80
+     , "Brownblue Garb": 80
+     , "Greenpurple Garb": 80
+     , "Greenpurplelight Garb": 80
+     , "Greybrown Garb": 80
+     , "Purplegreen Garb": 80
+     , "Redsea Garb": 80
+     , "Casual King Cape": 8
+     , "Ceremonious King Cape": 8
+     , "Forest King Cape": 15
+     , "Formal King Cape": 8
+     , "Grey  King Cape": 15
+     , "Priest King Cape": 8
+     , "Throne King Cape": 8
+     , "Festive Tunic": 8
+     , "Formal Tunic": 8
+     , "Green Tunic": 8
+     , "Noble Tunic": 8
+     , "Pumpkin Tunic": 8
+     , "Red Tunic": 8
+     , "Sea Noble Tunic": 8
+     , "Sunny Tunic": 8
+     , "Grey Undershirt": 60
+     , "Marine Undershirt": 120
+     , "Normal Undershirt": 120
+     , "Stained Undershirt": 300
+    }
+   ,"Skin": {
+     "Iceman": 1
+     , "Northlands": 35
+     , "Ogre": 15
+     , "Southlands": 35
+     , "Vampire": 14
+    }
+   ,"Hair": {
+     "Blond Bald": 23
+     , "Gingerbeard Bald": 5
+     , "Mid Life Bald": 23
+     , "Redbeard Bald": 12
+     , "Sub Zero Bald": 5
+     , "Wisebeard Bald": 5
+     , "Yellowbeard Bald": 25
+     , "Bloody Dreadlocks": 3
+     , "Experienced Warrior Dreadlocks": 23
+     , "Ginger Dreadlocks": 13
+     , "Handsome Dreadlocks": 13
+     , "Iced Dreadlocks": 5
+     , "Normal Dreadlocks": 23
+     , "Old Warrior Dreadlocks": 5
+     , "Viking Dreadlocks": 30
+     , "Brown Elegant": 23
+     , "Ginger Elegant": 12
+     , "Northener Elegant": 23
+     , "Old Elegant": 5
+     , "Snob Elegant": 23
+     , "Groomed Elegant": 23
+     , "Brown Standard": 23
+     , "Ginger Standard": 13
+     , "Loose Gold Standard": 13
+     , "Old Standard": 5
+     , "Standard": 23
+     , "Yellow Standard": 23
+    }
+   ,"Weapon": {
+     "Festive Clown Pickaxe": 10
+     , "Green Clown Pickaxe": 10
+     , "King Clown Pickaxe": 5
+     , "Purple Clown Pickaxe": 10
+     , "Redblue Clown Pickaxe": 10
+     , "Bloody Gun": 20
+     , "Festive Gun": 20
+     , "Marine Gun": 20
+     , "Normal Gun": 20
+     , "Royal Gun": 10
+     , "Bloody Hammer": 5
+     , "Festive Hammer": 5
+     , "Marine  Hammer": 5
+     , "Normal Hammer": 5
+     , "Thor's Hammer": 2
+     , "Bloody Modern Hammer": 10
+     , "Festive Modern Hammer": 10
+     , "King Modern Hammer": 5
+     , "Marine Modern Hammer": 10
+     , "Normal Modern Hammer": 10
+     , "Black Hightech Hammer": 20
+     , "Bloody Hightech Hammer": 10
+     , "Marine Hightech Hammer": 20
+     , "Royal Hightech Hammer": 5
+     , "Rusty Hightech Hammer": 10
+    ,  " Enchanted Blue Sword": 10
+     , "Enchanted Forest Sword": 10
+     , "Enchanted Golden Sword": 10
+     , "Enchanted Normal Sword": 10
+     , "Enchanted Uber-Sword": 10
+     , "Enchanted Violent Sword": 10
+     , "Bluebrown Pickaxe": 25
+     , "Festive Pickaxe": 25
+     , "Forest Pickaxe": 25
+     , "King Pickaxe": 25
+     , "Marine Bloody Pickaxe": 25
+     , "Marine Pickaxe": 25
+     , "Miner Pickaxe": 25
+     , "Murder Pickaxe": 15
+     , "Royal Pickaxe": 15
+    ,  " Modern Pickaxe": 25
+     , "Bloody Modern Pickaxe": 20
+     , "Festive Modern Pickaxe": 20
+     , "Marine Modern Pickaxe": 20
+     , "Royal Modern Pickaxe": 20
+    ,  " Pickaxe-Hammer": 20
+     , "Festive Pickaxe-Hammer": 20
+     , "Golden Pickaxe-Hammer": 20
+     , "Enchanted Pickaxe-Torch": 20
+     , "Ice Fire Pickaxe-Torch": 20
+     , "Pickaxe-Torch": 20
+     , "Red Pickaxe-Torch": 20
+     , "Royal Pickaxe-Torch": 20
+     , "Standard Pickaxe-Torch": 10
+    ,  " Shaman Scepter": 10
+     , "Festive Shaman Scepter": 10
+     , "Forest Shaman Scepter": 10
+     , "Marine Shaman Scepter": 10
+     , "Ritual Shaman Scepter": 10
+     , "Royal Shaman Scepter": 5
+     , "Rusty Shaman Scepter": 10
+     , "Bloody Magic Staff": 14
+     , "Brownblue Magic Staff": 15
+     , "Dark Magic Staff": 15
+     , "Festive Magic Staff": 18
+     , "Forbidden Magic Staff": 13
+     , "Golden Magic Staff": 15
+     , "Marine Magic Staff": 19
+     , "Purple Magic Staff": 8
+     , "Royal Magic Staff": 7
+     , "SIlver Magic Staff": 15
+     , "Soul Magic Staff": 6
+     , "Standard Magic Staff": 15
+     , "Tribute Magic Staff": 15
+     , "Alloy Sythe": 15
+     , "Bloody Sythe": 14
+     , "Classic Sythe": 12
+     , "Festive Sythe": 12
+     , "Marine Sythe": 15
+     , "Royal Sythe": 8
+     , "Rusty Sythe": 15
+     , "Bloody Sword": 15
+     , "Footsoldier Sword": 15
+     , "Iron Sword": 15
+     , "Lucky Sword": 14
+     , "Marine Sword": 14
+     , "Royal Sword": 5
+     , "Rusty Sword": 20
+     , "Bloody King Longsword": 15
+     , "Bloody Longsword": 10
+     , "Enchanted Marine Longsword": 15
+     , "Iron Longsword": 15
+     , "Magic Longsword": 10
+     , "Marine Longsword": 15
+     , "Priest Longsword": 3
+     , "Royal Longsword": 8
+     , "Bloody Torch": 20
+     , "Enchanted Torch": 8
+     , "Forest Fire Torch": 15
+     , "Ice Fire Torch": 10
+     , "Maple Wood Torch": 19
+     , "Solana  Torch": 5
+     , "Standard Torch": 15
+     , "Almost Rusty Wizard Staff": 25
+     , "Bloody Wizard Staff": 13
+     , "Festive Wizard Staff": 15
+     , "Forest Wizard Staff": 20
+     , "Marine Wizard Staff": 20
+     , "Royal Wizard Staff": 6
+     , "Standard Marine Wizard Staff": 5
+     , "Standard Wizard Staff": 30
+     , "White Wizard Staff": 7
+     , "Wooden Wizard Staff": 20
+    }
+   ,"Head Armor": {
+     "Blue Headband": 100
+     , "Leather Headband": 110
+     , "Marine Headband": 100
+     , "War Headband": 100
+     , "Elegant Marine Noble Headband": 90
+     , "Elegant Noble Headband": 80
+     , "Festive Noble Headband": 90
+     , "Marine Noble Headband": 100
+     , "Queen's Headband": 51
+     , "Royal Headband": 80
+     , "Standard Noble Headband": 99
+     , "Yellow Noble Headband": 66
+     , "Bluegold Jester Hat": 21
+     , "Bluered Jester Hat": 22
+     , "Goldblue Jester Hat": 21
+     , "Greenpurple Jester Hat": 25
+     , "Greygold Jester Hat": 25
+     , "Purplegreen Jester Hat": 23
+     , "Purplesea Jester Hat": 21
+     , "Redblue Jester Hat": 26
+     , "Enchanted Crown": 10
+     , "King Warrior Crown": 12
+     , "Marine Crown": 14
+     , "Official Crown": 5
+     , "Replacement Crown": 15
+     , "AVAX Miner Flashlight": 30
+     , "BTC Miner Flashlight": 30
+     , "ETH Miner Flashlight": 30
+     , "Leather Miner Flashlight": 70
+     , "Marine Miner Flashlight": 70
+     , "Standard Miner Flashlight": 70
+     , "Black Fedora": 45
+     , "Bloody Fedora": 40
+     , "Festive Fedora": 43
+     , "Forest Fedora": 39
+     , "Guard Fedora": 40
+     , "Hunting Fedora": 45
+     , "Marine Fedora": 48
+     , "Royal Fedora": 47
+     , "Arctic Fox Hat": 88
+     , "BTC Fox Hat": 5
+     , "Ice Fox Fox Hat": 15
+     , "Old Fox Hat": 25
+     , "Standard Fox Hat": 70
+     , "Bloody Peasant Headwear": 80
+     , "Blue Peasant Headwear": 75
+     , "Dirty Peasant Headwear": 73
+     , "Elegant Peasant Headwear": 75
+     , "Festive Peasant Headwear": 80
+     , "Rusty Peasant Headwear": 77
+     , "Bloody Miner Helmet": 70
+     , "Festive Miner Helmet": 77
+     , "Old Miner Helmet": 80
+     , "Royal Miner Helmet": 76
+     , "Bloody Viking Helmet": 60
+     , "Blue Viking Helmet": 47
+     , "Iron Viking Helmet": 68
+     , "Ivory Viking Helmet": 50
+     , "Royal Viking Helmet": 45
+     , "Rusty Viking Helmet": 75
+     , "Bloody War Helmet": 50
+     , "Festive War Helmet": 49
+     , "Ice War Helmet": 30
+     , "Iron War Helmet": 59
+     , "Polished War Helmet": 30
+     , "Royal War Helmet": 10
+     , "Rusty War Helmet": 80
+     , "Blood Soaked Hoody": 25
+     , "Blue Hoody": 50
+     , "Festive Hoody": 50
+     , "Old Hoody": 80
+     , "Polished Hoody": 5
+     , "Stained Hoody": 30
+    }
+   ,"Leg Armor": {
+     "Bloody Armored Trousers": 30
+     , "Festive Armored Trousers": 20
+     , "Ice Armored Trousers": 25
+     , "Iron Armored Trousers": 45
+     , "Polished Armored Trousers": 2
+     , "Royal Armored Trousers": 10
+     , "Rusty Armored Trousers": 50
+     , "Bluegold Clown Trousers": 5
+     , "Bluered Clown Trousers": 4
+     , "Goldbluelight Clown Trousers": 3
+     , "Goldgrey Clown Trousers": 2
+     , "Greenpurple Clown Trousers": 4
+     , "Greenpurplelight Clown Trousers": 5
+     , "Purplegreen Clown Trousers": 6
+     , "Purplegreenlight Clown Trousers": 5
+     , "Redgreen Clown Trousers": 4
+     , "Blue Noble Trousers": 4
+     , "Festive Noble Trousers": 5
+     , "Light Noble Trousers": 4
+     , "Marine Noble Trousers": 6
+     , "Old Noble Trousers": 5
+     , "Orange Noble Trousers": 8
+     , "Red Noble Trousers": 4
+     , "Yellow Noble Trousers": 4
+     , "Bear Skin Peasant Trousers": 66
+     , "Black Peasant Trousers": 78
+     , "Jeans Peasant Trousers": 60
+     , "Leather Peasant Trousers": 70
+     , "Raggy Peasant Trousers": 60
+     , "Tainted Peasant Trousers": 66
+    }
+   ,"Shoulder Armor": {
+     "Black Leather": 200
+     , "Blood Soaked Leather": 70
+     , "Blue Colored  Leather": 78
+     , "Festive  Leather": 77
+     , "King Colored Leather": 50
+     , "Leather": 99
+     , "Royal Leather": 68
+     , "Bloody Peasant": 65
+     , "Blue Peasant": 72
+     , "Formal Peasant": 40
+     , "Old Peasant": 80
+     , "Polished Peasant": 5
+     , "Rusty Peasant": 50
+     , "Bloody Plates": 40
+     , "Festive Plates": 40
+     , "Ice Coated Plates": 20
+     , "Iron Coated Plates": 60
+     , "Ivory Coated Plates": 5
+     , "Royal Gold  Coated Plates": 15
+     , "Rusty Plates": 30
+    }
+   ,"Belt": {
+     "Blook Soaked": 10
+     , "Bluegold": 14
+     , "Blueyellow": 0
+     , "Festive": 20
+     , "Formal": 12
+     , "Greyyellow": 11
+     , "Leather": 49
+     , "Royal": 10
+    }
+   ,"Eyes Accessory": {
+     "Common Binocles": 40
+     , "Ivory Binocles": 2
+     , "Marine Binocles": 16
+     , "Old Binocles": 35
+     , "Royal Binocles": 10
+     , "BTC Mining Glasses": 30
+     , "Common Glasses": 50
+     , "G.I. Glasses": 30
+     , "Killing Glasses": 45
+     , "Lovely Glasses": 60
+     , "Operative Glasses ": 15
+     , "Royal Reading Glasses": 14
+     , "Underwater Glasses": 30
+     , "Bloody Eyepatch": 50
+     , "Classic Eyepatch": 70
+     , "Ivory Eyepatch": 2
+     , "Marine Eyepatch": 48
+     , "Royal Eyepatch": 22
+     , "Sea Eyepatch": 48
+    }
+   ,"Jewelry Accessory": {
+     "Gold Sapphire": 8
+     , "Golden Amethyst": 10
+     , "Golden Blue Topaz": 20
+     , "Golden Citrine": 10
+     , "Golden Emerald": 1
+     , "Golden Red Coral": 11
+     , "Golden Ruby": 20
+     , "Golden Tanzanite": 15
+     , "Amethyst": 15
+     , "Aquamarine": 11
+     , "Black Onyx": 19
+     , "Blue Akoya Pearl": 20
+     , "Carnelian": 10
+     , "Khooni Neelam": 20
+     , "Opal": 7
+     , "Rose Quartz": 9
+     , "Spessartite garnet": 5
+    }
+   ,"Shirt Accessory": {
+     "Ice  Suspenders": 40
+     , "Leather Suspenders": 100
+     , "Royal Suspenders": 50
+     , "Working Suspenders ": 84
+     , "Elegant Zipper On Shirt": 3
+     , "Royal Zipper On Shirt": 2
+    }
+ }

@@ -6,6 +6,7 @@ import { PublicKey } from '@solana/web3.js';
 import { Data } from '../../logic/utils/get-mints';
 import { useMeta } from '../../contexts/meta/meta';
 import './index.css';
+const traits = require('../Attributes/traits.json');
 
 const { Meta } = Card;
 
@@ -77,16 +78,24 @@ export const ArtCard = (props: ArtCardProps) => {
   name = art?.name || name || ' ';
 
   image = art?.image || image || ''
-
+  
+  var rarity = 1
   if (!isLoading){
     var met_img = metadata.filter(m => pubkeyToString(m.info.mint) == pubkey)[0]
 
     if (met_img?.data) {
       image = met_img.data.image
       //console.log("pubkey", isLoading, met_img, pubkey, "image", met_img.data.image, image)
+    
+      for (let i=0; i<met_img.data.attributes.length; i++){
+        if (met_img.data.attributes[i].rarity !== undefined)
+          rarity = rarity + met_img.data.attributes[i].rarity
+      }
+      rarity = rarity/met_img.data.attributes.length
     }
   }
 
+  console.log("rarity:", rarity)
 
 
   const card = (
@@ -114,7 +123,7 @@ export const ArtCard = (props: ArtCardProps) => {
         title={<div style={{
           textOverflow: 'ellipsis',
           overflow: 'hidden',
-        }}>{name}</div>}
+        }}>{`${name} (${((rarity) * 100).toFixed(2)}%)`}</div>}
       />
     </Card>
   );
