@@ -95,8 +95,6 @@ export const ArtCard = (props: ArtCardProps) => {
     }
   }
 
-  console.log("rarity:", rarity)
-
 
   const card = (
     <Card

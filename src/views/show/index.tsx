@@ -101,7 +101,13 @@ const Show = () => {
 
                     {!wallet && <p>Not connected</p>}
                     {wallet && isLoading && <p>Loading ... </p>}
-                    {!isLoading && wallet && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length > 1 ? "s" : ""}!</p>}
+                    {!isLoading && wallet && ownedMinerdwarfs.length>0 && <p>You have {ownedMinerdwarfs.length} Minerdwarf{ownedMinerdwarfs.length > 1 ? "s" : ""}!</p>}
+                    <Link to={`/mint`}>
+                     {!isLoading && wallet && ownedMinerdwarfs.length==0 && <p style={{color: "black"}}>Go to the mint page to get your own MinerDwarf!</p>}
+                    </Link>
+                    {!isLoading && wallet && ownedMinerdwarfs.length==0 && <div className="sad_dwarf"> <img src="img/DwarfsWithoutBackground/sad_king_dwarf.png" alt="sad_king" /></div>}
+                    
+
                     <br />
                     <div className="card-container">
                         <Row style={{ width: '90%', marginLeft: '5%' }}>
