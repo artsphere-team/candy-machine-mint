@@ -10,14 +10,13 @@ import { Row } from "antd";
 import { useMeta } from "../../contexts/meta/meta";
 import { ArtModal } from "../../components/ArtModal";
 import { PublicKey } from "@solana/web3.js";
-import './index.less'
 //import {fetchingData} from  "../../contexts/meta/meta"
 
 const Show = () => {
     const { metadata, ownedMinerDwarfsMeta, isLoading } = useMeta()
     const [issuedownedMinerdwarfs, setissuedownedMinerdwarfs] = useState(false)
     const [ownedMinerdwarfs, setownedMinerdwarfs] = useState([] as any)
-    
+
     const [showArtworkModal, setShowArtworkModal] = useState<boolean>(false);
     const [artworkIdModal, setArtworkIdModal] = useState<string>("");
     const [arworkidList, setartworkIdList] = useState([] as any)
@@ -31,7 +30,7 @@ const Show = () => {
 
     const wallet = useAnchorWallet();
 
-        
+
     if (!isLoading && ownedMinerDwarfsMeta && !issuedownedMinerdwarfs) {
         //console.log("INNER", metadata)
         setownedMinerdwarfs(ownedMinerDwarfsMeta);
@@ -39,26 +38,25 @@ const Show = () => {
         setissuedownedMinerdwarfs(true)
     }
 
-    //console.log("ISLOADING MAIN", isLoading, metadata, ownedMinerDwarfsMeta)
-
     const artworkGrid = (
         <Masonry
             breakpointCols={breakpointColumnsObj}
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
         >
-            {!isLoading 
+            {!isLoading
                 //@ts-ignore
                 ? ownedMinerdwarfs.map((m, idx) => {
                     const id = m.info.mint;
                     return (
                         <Link
-                          to={`#`}
-                          onClick={() => {
-                            setShowArtworkModal(true);
-                            setArtworkIdModal(id);
-                            console.log("Modal visible:", showArtworkModal, id)
-                          }}
+                            to={`#`}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                            onClick={() => {
+                                setShowArtworkModal(true);
+                                setArtworkIdModal(id);
+                                console.log("Modal visible:", showArtworkModal, id)
+                            }}
                         >
                             <ArtCard
                                 key={id}
@@ -74,7 +72,6 @@ const Show = () => {
                 : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
         </Masonry>
     );
-
 
     return (
         <div>
@@ -109,29 +106,31 @@ const Show = () => {
                     <div className="card-container">
                         <Row style={{ width: '90%', marginLeft: '5%' }}>
                             {wallet && artworkGrid}
-                            <ArtModal
-                                artworkId={artworkIdModal}
-                                artworkIdList={arworkidList}
-                                visible={showArtworkModal}
-                                key={arworkidList.indexOf(artworkIdModal)}
-                                onSwipe={(direction: string) => {
-                                    var currentIdx = arworkidList.indexOf(artworkIdModal);
-                                    setArtworkIdModal(
-                                        direction == "right"
-                                        ? arworkidList[currentIdx + 1]
-                                        : arworkidList[currentIdx - 1]
-                                    );
-                                }}
-                                onCancel={() => {
-                                    console.log("MODAL CANCELLED")
-                                    setArtworkIdModal("");
-                                    setShowArtworkModal(false);
-                                }}
-                            />
+
                         </Row>
                     </div>
                 </div>
             </header>
+            <ArtModal
+                artworkId={artworkIdModal}
+                artworkIdList={arworkidList}
+                visible={showArtworkModal}
+                key={arworkidList.indexOf(artworkIdModal)}
+                onSwipe={(direction: string) => {
+                    var currentIdx = arworkidList.indexOf(artworkIdModal);
+                    setArtworkIdModal(
+                        direction == "right"
+                            ? arworkidList[currentIdx + 1]
+                            : arworkidList[currentIdx - 1]
+                    );
+                }}
+                style={{border: '3px solid red', position: 'absolute', top: 0, left: 0}}
+                onCancel={() => {
+                    console.log("MODAL CANCELLED")
+                    setArtworkIdModal("");
+                    setShowArtworkModal(false);
+                }}
+            />
 
             <Link to={`/`}>
                 <div className='backArrow'>
@@ -145,6 +144,6 @@ const Show = () => {
 
 const pubkeyToString = (key: PublicKey | null | string = '') => {
     return typeof key === 'string' ? key : key?.toBase58() || '';
-  };
+};
 
 export default Show

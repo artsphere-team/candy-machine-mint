@@ -1,0 +1,158 @@
+
+a {
+  text-decoration: none !important;
+}
+
+.no-events {
+  pointer-events: none;
+}
+
+.ant-layout {
+  background: transparent !important;
+}
+
+img:not([src]) {
+  visibility: hidden;
+}
+
+.square div {
+  position: relative;
+  padding-top: 100% !important;
+  pointer-events: none;
+  width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.app-logo {
+  height: 32px;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 32px;
+  width: 32px;
+}
+
+.app-title {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.ant-image-img {
+  border-radius: 0px;
+}
+
+.ant-card-cover {
+  position: relative;
+  overflow: hidden;
+
+}
+
+.placebid {
+  display: flex;
+  color: black;
+}
+
+.text-center {
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ant-upload.ant-upload-drag {
+  border-radius: 0px;
+  border-color: transparent;
+}
+
+.tab-title {
+  color: #bdbdbd;
+  font-size: 1.0rem;
+  font-weight: 500;
+}
+
+.ant-tabs {
+  width: 100%;
+}
+
+.ant-avatar-group .ant-avatar {
+  border: 1px solid transparent;
+}
+
+.ant-avatar-group {
+  padding-bottom: 16px;
+}
+
+.ant-avatar-group .ant-avatar-image:not(:first-child) {
+  margin-left: -12px !important;
+}
+
+.creator-name {
+  font-weight: 400;
+  
+  font-size: 0.9rem;
+  margin-left: 15px;
+  color: black;
+}
+
+.card-text {
+  margin: 0;
+  font-weight: 400;
+  
+  font-size: 0.8rem;
+  color: black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 0.9rem;
+}
+
+.creators .info-content:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+.card-container {
+  width: 100%;
+}
+
+.card-container p {
+  background: transparent;
+  margin: 0;
+}
+.card-container > .ant-tabs-card .ant-tabs-content {
+  margin-top: -16px;
+  background: transparent;
+}
+.card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+  padding: 16px;
+}
+.card-container > .ant-tabs-card > .ant-tabs-nav::before {
+  background: transparent;
+  display: none;
+}
+.card-container > .ant-tabs-card .ant-tabs-tab,
+[data-theme="compact"] .card-container > .ant-tabs-card .ant-tabs-tab {
+  background: transparent;
+  border-color: transparent;
+}
+.card-container > .ant-tabs-card .ant-tabs-tab-active,
+[data-theme="compact"] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+  border-color: transparent;
+}
+#components-tabs-demo-card-top .code-box-demo {
+  padding: 24px;
+  overflow: hidden;
+}
+[data-theme="compact"] .card-container > .ant-tabs-card .ant-tabs-content {
+  background: transparent;
+  margin-top: -8px;
+}
+[data-theme="dark"] .card-container > .ant-tabs-card .ant-tabs-tab {
+  background: transparent;
+}
+[data-theme="dark"] #components-tabs-demo-card-top .code-box-demo {
+  background: black;
+}
+

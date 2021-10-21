@@ -5,7 +5,7 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { PublicKey } from "@solana/web3.js";
 import { useInView } from "react-intersection-observer";
 import { useMeta } from "../../contexts/meta/meta";
-import './index.less'
+import './index.css'
 
 const { Content } = Layout;
 
