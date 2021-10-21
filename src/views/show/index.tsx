@@ -1,7 +1,7 @@
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui"
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { shortenAddress } from "../../logic/candy-machine";
 import Masonry from 'react-masonry-css';
 import { CardLoader } from '../../components/Loader'
@@ -65,8 +65,11 @@ const Show = () => {
                                 preview={false}
                                 data={m.data}
                                 height={300}
+                                onClick={() => {
+                                    window.open(m.data.uri, "_blank")
+                                }}
                             />
-                        // </Link>
+                        //</Link>
                     );
                 })
                 : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
