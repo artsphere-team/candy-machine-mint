@@ -199,15 +199,15 @@ const Mint = (props: MintProps) => {
           </div>
           <div className="bottomGrass"></div>
         </div>
-        <h2>MINT<br />MINERDWARFS</h2>
+        <h2 style={{ marginTop: 200 }}>MINERDWARFS<br />SOLD OUT</h2>
 
-        {!wallet && !isActive ? (
+        {/* {!wallet && !isActive ? (
           <div style={{ position: 'absolute', top: 20, right: 10 }}>
             <WalletDialogButton style={{ background: 'transparent', boxShadow: 'none' }}><img src="img/Buttons/connect.png" alt="mint button" className="connectButton" /></WalletDialogButton>
           </div>
-        ) : undefined}
+        ) : undefined} */}
 
-        <div className='mintSection' >
+        {/* <div className='mintSection' >
           {wallet && (
             <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
           )}
@@ -215,12 +215,6 @@ const Mint = (props: MintProps) => {
           {isActive && wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
 
           {isActive && wallet && <p>NFT price: {price} SOL</p>}
-
-          {/* {isActive && wallet && <p>Total Available: {itemsAvailable}</p>}
-
-          {isActive && wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-          {isActive && wallet && <p>Remaining: {itemsRemaining}</p>} */}
 
           {<MintContainer>
             {!wallet ? (
@@ -252,7 +246,7 @@ const Mint = (props: MintProps) => {
             )}
           </MintContainer>}
 
-        </div>
+        </div> */}
         <div className="clouds">
           <img src="img/Top/Clouds/cloud1.png" alt="cloud" />
           <img src="img/Top/Clouds/cloud2.png" alt="cloud" />
